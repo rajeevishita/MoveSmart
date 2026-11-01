@@ -1,0 +1,423 @@
+/* ==========================================
+   Move Smart - Main Stylesheet
+   ========================================== */
+
+/* Color palette (from Realtime Colors) */
+:root {
+  --text: #09090b;
+  --background: #f7f6f8;
+  --primary: #7c7994;
+  --secondary: #c4b5be;
+  --accent: #a89398;
+  /* shades built from the palette */
+  --primary-dark: #4f4c66;
+  --plum: #2b2838;
+  --mist: #e9e2e6;
+  --white: #ffffff;
+}
+
+/* ---------- Base ---------- */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Archivo", Arial, sans-serif;
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--text);
+  background-color: var(--background);
+}
+
+h1, h2, h3, h4 {
+  font-stretch: 125%;
+  line-height: 1.15;
+  margin: 0 0 14px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.container {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ---------- Header ---------- */
+.site-header {
+  padding: 20px 0 16px;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  text-decoration: none;
+}
+
+.brand-name {
+  display: block;
+  font-size: 26px;
+  font-weight: 800;
+  font-stretch: 125%;
+  color: var(--plum);
+  line-height: 1.1;
+}
+
+.tagline {
+  display: block;
+  font-size: 15px;
+  color: var(--primary-dark);
+}
+
+/* ---------- Navigation ---------- */
+.site-nav {
+  border-top: 1px solid var(--secondary);
+  border-bottom: 1px solid var(--secondary);
+}
+
+.site-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 28px;
+}
+
+.site-nav a {
+  position: relative;
+  display: block;
+  padding: 14px 0;
+  color: var(--primary-dark);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.site-nav a:hover {
+  color: var(--text);
+}
+
+/* the current page gets a joint marker under it */
+.site-nav a.active {
+  color: var(--text);
+}
+
+.site-nav a.active::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -6px;
+  width: 11px;
+  height: 11px;
+  margin-left: -5.5px;
+  border-radius: 50%;
+  background-color: var(--background);
+  border: 3px solid var(--primary-dark);
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  background-color: var(--plum);
+  color: var(--background);
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 0.7fr;
+  align-items: center;
+  gap: 32px;
+  padding-top: 56px;
+  padding-bottom: 40px;
+}
+
+.hero h1 {
+  font-size: clamp(34px, 5.2vw, 64px);
+  font-weight: 800;
+  line-height: 1.02;
+  letter-spacing: -0.01em;
+  margin-bottom: 24px;
+}
+
+.hero h1 span {
+  display: block;
+}
+
+.hero-text p {
+  max-width: 34em;
+  font-size: 19px;
+  color: var(--mist);
+  margin: 0 0 30px;
+}
+
+.hero-img {
+  justify-self: end;
+  width: 100%;
+  max-width: 420px;
+}
+
+/* ---------- Buttons and links ---------- */
+.btn {
+  display: inline-block;
+  padding: 13px 28px;
+  border-radius: 40px;
+  background-color: var(--secondary);
+  color: var(--text);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background-color: var(--white);
+}
+
+.tips .btn {
+  background-color: var(--primary-dark);
+  color: var(--white);
+}
+
+.tips .btn:hover {
+  background-color: var(--plum);
+}
+
+.btn-small {
+  padding: 10px 22px;
+  font-size: 15px;
+}
+
+.text-link {
+  color: var(--primary-dark);
+  font-weight: 700;
+  text-underline-offset: 4px;
+}
+
+/* ---------- Sections ---------- */
+.how,
+.featured {
+  padding-top: 64px;
+  padding-bottom: 8px;
+}
+
+h2 {
+  font-size: 34px;
+  font-weight: 800;
+  color: var(--plum);
+}
+
+h3 {
+  font-size: 21px;
+  font-weight: 700;
+  color: var(--plum);
+}
+
+.section-intro {
+  margin: 0 0 32px;
+  color: var(--primary-dark);
+}
+
+/* How it works: numbered joints joined by a line */
+.steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+.step {
+  position: relative;
+}
+
+.step:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 21px;
+  left: 46px;
+  right: -32px;
+  height: 4px;
+  background-color: var(--secondary);
+}
+
+.step-num {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 4px solid var(--primary-dark);
+  background-color: var(--background);
+  font-weight: 800;
+  font-stretch: 125%;
+  color: var(--plum);
+}
+
+.step img {
+  height: 130px;
+  width: auto;
+  margin: 22px 0 14px;
+}
+
+.step p {
+  margin: 0;
+  max-width: 32em;
+}
+
+/* Featured exercise */
+.featured-grid {
+  display: grid;
+  grid-template-columns: 1.9fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.feature {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 28px;
+}
+
+.feature img {
+  border-radius: 6px;
+}
+
+.feature p {
+  margin: 0 0 14px;
+}
+
+/* tips styled like a Move Smart form report */
+.tips {
+  padding: 26px 26px 22px;
+  background-color: var(--white);
+  border: 1px solid var(--secondary);
+  border-top: 8px solid var(--plum);
+  border-radius: 4px 4px 14px 14px;
+}
+
+.tips ul {
+  list-style: none;
+  margin: 0 0 22px;
+  padding: 0;
+}
+
+.tips li {
+  position: relative;
+  padding: 9px 0 9px 34px;
+  border-bottom: 1px dashed var(--secondary);
+}
+
+.tips li::before {
+  content: "\2713";
+  position: absolute;
+  left: 0;
+  top: 10px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background-color: var(--primary);
+  color: var(--white);
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 22px;
+  text-align: center;
+}
+
+.external {
+  margin: 16px 0 0;
+  font-size: 15px;
+  color: var(--primary-dark);
+}
+
+.external a {
+  color: var(--primary-dark);
+}
+
+/* ---------- Footer ---------- */
+.site-footer {
+  margin-top: 72px;
+  padding: 48px 0 20px;
+  background-color: var(--plum);
+  color: var(--mist);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+.site-footer h4 {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--white);
+}
+
+.site-footer p {
+  margin: 0 0 6px;
+}
+
+.site-footer a {
+  color: var(--secondary);
+}
+
+.site-footer a:hover {
+  color: var(--white);
+}
+
+.footer-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  line-height: 1.9;
+}
+
+.site-footer .copyright {
+  margin-top: 36px;
+  padding-top: 18px;
+  border-top: 1px solid var(--primary-dark);
+  font-size: 14px;
+  color: var(--secondary);
+}
+
+/* ---------- Small screens ---------- */
+@media (max-width: 860px) {
+  .hero-grid,
+  .featured-grid,
+  .feature,
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-img {
+    justify-self: center;
+    max-width: 300px;
+  }
+
+  .steps {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .step:not(:last-child)::after {
+    display: none;
+  }
+
+  .site-nav ul {
+    gap: 12px 22px;
+  }
+
+  .site-nav a {
+    padding: 10px 0;
+  }
+}

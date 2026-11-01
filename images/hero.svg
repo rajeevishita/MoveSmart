@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="420 0 440 530" width="440" height="530">
+<style>
+  .pose, .trace, .angle { animation: show 0.5s ease-out backwards; }
+  .p1 { opacity: 0.22; animation-delay: 0.1s; }
+  .p2 { opacity: 0.38; animation-delay: 0.45s; }
+  .p3 { opacity: 0.6; animation-delay: 0.8s; }
+  .p4 { animation-delay: 1.15s; }
+  .trace, .angle { animation-delay: 1.6s; }
+  @keyframes show { from { opacity: 0; } }
+  @media (prefers-reduced-motion: reduce) { .pose, .trace, .angle { animation: none; } }
+</style>
+<defs>
+  <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+    <path d="M40 0H0V40" fill="none" stroke="#c4b5be" stroke-opacity="0.09" stroke-width="1"/>
+  </pattern>
+</defs>
+<rect x="420" y="0" width="440" height="530" fill="url(#grid)"/>
+<line x1="470" y1="503" x2="830" y2="503" stroke="#7c7994" stroke-width="3" stroke-linecap="round"/>
+<g class="pose p1">
+<g fill="none" stroke="#c4b5be" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+<path d="M607.8 85.2 L600.0 235.0 L600.0 370.0 L600.0 490.0 L650 498 M600.0 490.0 L582 498"/>
+<path d="M607.8 85.2 L685.8 97.2 L757.8 91.2"/><path d="M607.8 85.2 L610.1 55.9"/></g>
+<circle cx="612.0" cy="32.0" r="24" fill="none" stroke="#c4b5be" stroke-width="5"/>
+<circle cx="607.8" cy="85.2" r="5" fill="#c4b5be"/>
+<circle cx="685.8" cy="97.2" r="5" fill="#c4b5be"/>
+<circle cx="757.8" cy="91.2" r="5" fill="#c4b5be"/>
+<circle cx="600.0" cy="235.0" r="5" fill="#c4b5be"/>
+<circle cx="600.0" cy="370.0" r="5" fill="#c4b5be"/>
+<circle cx="600.0" cy="490.0" r="5" fill="#c4b5be"/>
+</g>
+<g class="pose p2">
+<g fill="none" stroke="#c4b5be" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+<path d="M595.6 129.7 L544.3 270.7 L631.1 374.1 L600.0 490.0 L650 498 M600.0 490.0 L582 498"/>
+<path d="M595.6 129.7 L673.6 141.7 L745.6 135.7"/><path d="M595.6 129.7 L608.7 101.7"/></g>
+<circle cx="618.8" cy="79.9" r="24" fill="none" stroke="#c4b5be" stroke-width="5"/>
+<circle cx="595.6" cy="129.7" r="5" fill="#c4b5be"/>
+<circle cx="673.6" cy="141.7" r="5" fill="#c4b5be"/>
+<circle cx="745.6" cy="135.7" r="5" fill="#c4b5be"/>
+<circle cx="544.3" cy="270.7" r="5" fill="#c4b5be"/>
+<circle cx="631.1" cy="374.1" r="5" fill="#c4b5be"/>
+<circle cx="600.0" cy="490.0" r="5" fill="#c4b5be"/>
+</g>
+<g class="pose p3">
+<g fill="none" stroke="#c4b5be" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+<path d="M614.4 201.2 L528.4 324.1 L650.7 381.2 L600.0 490.0 L650 498 M600.0 490.0 L582 498"/>
+<path d="M614.4 201.2 L692.4 213.2 L764.4 207.2"/><path d="M614.4 201.2 L634.4 177.5"/></g>
+<circle cx="649.8" cy="159.1" r="24" fill="none" stroke="#c4b5be" stroke-width="5"/>
+<circle cx="614.4" cy="201.2" r="5" fill="#c4b5be"/>
+<circle cx="692.4" cy="213.2" r="5" fill="#c4b5be"/>
+<circle cx="764.4" cy="207.2" r="5" fill="#c4b5be"/>
+<circle cx="528.4" cy="324.1" r="5" fill="#c4b5be"/>
+<circle cx="650.7" cy="381.2" r="5" fill="#c4b5be"/>
+<circle cx="600.0" cy="490.0" r="5" fill="#c4b5be"/>
+</g>
+<g class="pose p4">
+<g fill="none" stroke="#f7f6f8" stroke-width="10" stroke-linecap="round" stroke-linejoin="round">
+<path d="M631.6 291.8 L525.5 397.9 L660.0 386.1 L600.0 490.0 L650 498 M600.0 490.0 L582 498"/>
+<path d="M631.6 291.8 L709.6 303.8 L781.6 297.8"/><path d="M631.6 291.8 L655.3 271.8"/></g>
+<circle cx="673.7" cy="256.4" r="24" fill="#2b2838" stroke="#f7f6f8" stroke-width="7"/>
+<circle cx="631.6" cy="291.8" r="8" fill="#2b2838" stroke="#c4b5be" stroke-width="4"/>
+<circle cx="709.6" cy="303.8" r="8" fill="#2b2838" stroke="#c4b5be" stroke-width="4"/>
+<circle cx="781.6" cy="297.8" r="8" fill="#2b2838" stroke="#c4b5be" stroke-width="4"/>
+<circle cx="525.5" cy="397.9" r="8" fill="#2b2838" stroke="#c4b5be" stroke-width="4"/>
+<circle cx="660.0" cy="386.1" r="8" fill="#2b2838" stroke="#c4b5be" stroke-width="4"/>
+<circle cx="600.0" cy="490.0" r="8" fill="#2b2838" stroke="#c4b5be" stroke-width="4"/>
+</g>
+<path class="trace" d="M600 235 C 562 244, 532 284, 528.4 324.1 S 523 380, 525.5 397.9" fill="none" stroke="#a89398" stroke-width="4" stroke-linecap="round" stroke-dasharray="0.5 11"/>
+<g class="angle">
+  <path d="M622.1 389.4 A38 38 0 0 0 641 419" fill="none" stroke="#a89398" stroke-width="5" stroke-linecap="round"/>
+  <line x1="670" y1="392" x2="686" y2="399" stroke="#a89398" stroke-width="2"/>
+  <text x="690" y="408" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#f7f6f8">55°</text>
+</g>
+</svg>

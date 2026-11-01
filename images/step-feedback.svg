@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="96 14 168 174" width="168" height="174">
+  
+  <rect x="100" y="18" width="160" height="166" rx="14" fill="#ffffff" stroke="#4f4c66" stroke-width="5"/>
+  <text x="120" y="50" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700" fill="#4f4c66">Form report</text>
+  <line x1="118" y1="62" x2="242" y2="62" stroke="#c4b5be" stroke-width="2"/>
+  <g>
+    <circle cx="130" cy="88" r="10" fill="#7c7994"/>
+    <path d="M125 88l4 4 7-8" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="150" y="83" width="88" height="10" rx="5" fill="#c4b5be"/>
+    <circle cx="130" cy="120" r="10" fill="#7c7994"/>
+    <path d="M125 120l4 4 7-8" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="150" y="115" width="72" height="10" rx="5" fill="#c4b5be"/>
+    <circle cx="130" cy="152" r="10" fill="#a89398"/>
+    <text x="130" y="157.5" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" fill="#fff">!</text>
+    <rect x="150" y="147" width="80" height="10" rx="5" fill="#c4b5be"/>
+  </g>
+</svg>

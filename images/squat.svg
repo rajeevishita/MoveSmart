@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="380 210 460 310" width="460" height="310">
+<rect x="380" y="210" width="460" height="310" fill="#2b2838"/>
+<line x1="440" y1="503" x2="800" y2="503" stroke="#7c7994" stroke-width="3" stroke-linecap="round"/>
+<g >
+<g fill="none" stroke="#f7f6f8" stroke-width="10" stroke-linecap="round" stroke-linejoin="round">
+<path d="M631.6 291.8 L525.5 397.9 L660.0 386.1 L600.0 490.0 L650 498 M600.0 490.0 L582 498"/>
+<path d="M631.6 291.8 L709.6 303.8 L781.6 297.8"/><path d="M631.6 291.8 L655.3 271.8"/></g>
+<circle cx="673.7" cy="256.4" r="24" fill="#2b2838" stroke="#f7f6f8" stroke-width="7"/>
+<circle cx="631.6" cy="291.8" r="8" fill="#2b2838" stroke="#c4b5be" stroke-width="4"/>
+<circle cx="709.6" cy="303.8" r="8" fill="#2b2838" stroke="#c4b5be" stroke-width="4"/>
+<circle cx="781.6" cy="297.8" r="8" fill="#2b2838" stroke="#c4b5be" stroke-width="4"/>
+<circle cx="525.5" cy="397.9" r="8" fill="#2b2838" stroke="#c4b5be" stroke-width="4"/>
+<circle cx="660.0" cy="386.1" r="8" fill="#2b2838" stroke="#c4b5be" stroke-width="4"/>
+<circle cx="600.0" cy="490.0" r="8" fill="#2b2838" stroke="#c4b5be" stroke-width="4"/>
+</g>
+<g stroke="#a89398" stroke-width="2">
+  <line x1="492" y1="262" x2="618" y2="286"/>
+  <line x1="672" y1="392" x2="688" y2="404"/>
+  <line x1="510" y1="472" x2="578" y2="494"/>
+</g>
+<g font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#e9e2e6">
+  <text x="396" y="268">Chest up</text>
+  <text x="692" y="418">Knees</text>
+  <text x="692" y="444">over toes</text>
+  <text x="396" y="478">Heels down</text>
+</g>
+</svg>
