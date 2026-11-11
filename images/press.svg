@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 310" width="460" height="310">
+<rect width="460" height="310" fill="#2b2838"/>
+<line x1="40" y1="300" x2="420" y2="300" stroke="#7c7994" stroke-width="3" stroke-linecap="round"/>
+<line x1="242" y1="56" x2="242" y2="296" stroke="#a89398" stroke-width="2.5" stroke-dasharray="6 7"/><circle cx="242" cy="32" r="20" fill="none" stroke="#7c7994" stroke-width="6"/><circle cx="242" cy="32" r="5" fill="#c4b5be"/>
+<g fill="none" stroke="#f7f6f8" stroke-width="9" stroke-linecap="round" stroke-linejoin="round">
+<path d="M231 102 L229 170 L231 232 L230 292 L264 300"/>
+<path d="M230 292 L218 300"/>
+<path d="M231 102 L252 68 L242 34"/><path d="M231 102 L226 96"/>
+</g>
+<circle cx="222" cy="82" r="15" fill="#2b2838" stroke="#f7f6f8" stroke-width="6"/>
+<circle cx="231" cy="102" r="7" fill="#2b2838" stroke="#c4b5be" stroke-width="3.5"/>
+<circle cx="252" cy="68" r="7" fill="#2b2838" stroke="#c4b5be" stroke-width="3.5"/>
+<circle cx="242" cy="34" r="7" fill="#2b2838" stroke="#c4b5be" stroke-width="3.5"/>
+<circle cx="229" cy="170" r="7" fill="#2b2838" stroke="#c4b5be" stroke-width="3.5"/>
+<circle cx="231" cy="232" r="7" fill="#2b2838" stroke="#c4b5be" stroke-width="3.5"/>
+<circle cx="230" cy="292" r="7" fill="#2b2838" stroke="#c4b5be" stroke-width="3.5"/>
+<g stroke="#a89398" stroke-width="2">
+<line x1="278" y1="38" x2="264" y2="34"/>
+<line x1="128" y1="136" x2="222" y2="136"/>
+<line x1="278" y1="178" x2="238" y2="170"/>
+</g>
+<g font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#e9e2e6">
+<text x="282" y="34">Bar over</text>
+<text x="282" y="58">mid-foot</text>
+<text x="20" y="130">Ribs down,</text>
+<text x="20" y="154">core tight</text>
+<text x="282" y="182">Glutes</text>
+<text x="282" y="206">squeezed</text>
+</g>
+</svg>

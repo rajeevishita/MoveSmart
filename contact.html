@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contact Move Smart to ask a question, request a demo, or share feedback.">
+  <meta name="keywords" content="contact Move Smart, request a demo, questions, feedback">
+  <meta name="author" content="Ishita Rajeev">
+  <title>Contact | Move Smart</title>
+  <link rel="icon" href="images/logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="brand">
+        <img src="images/logo.svg" alt="Move Smart logo" width="52" height="52">
+        <span>
+          <span class="brand-name">Move Smart</span>
+          <span class="tagline">AI-powered exercise form feedback</span>
+        </span>
+      </a>
+    </div>
+  </header>
+
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="container">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="how-it-works.html">How It Works</a></li>
+        <li><a href="exercises.html">Exercises</a></li>
+        <li><a href="form-check.html">Form Check</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html" class="active" aria-current="page">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+
+    <section class="page-intro">
+      <div class="container">
+        <h1>Contact us</h1>
+        <p>Have a question, want to request a demo, or have feedback? Send us a message and we'll reply by email within two business days.</p>
+      </div>
+    </section>
+
+    <section class="container page-section">
+      <div class="contact-grid">
+        <form class="contact-form" action="#" method="post">
+          <h2>Ask a question or request a demo</h2>
+          <p class="form-note">Fields marked * are required.</p>
+          <div class="field-row">
+            <div class="field">
+              <label for="name">Full name *</label>
+              <input type="text" id="name" name="name" autocomplete="name" placeholder="Jordan Lee" required>
+            </div>
+            <div class="field">
+              <label for="email">Email *</label>
+              <input type="email" id="email" name="email" autocomplete="email" placeholder="you@example.com" required>
+            </div>
+          </div>
+          <div class="field">
+            <label for="level">Experience level</label>
+            <select id="level" name="level">
+              <option value="">Choose one</option>
+              <option value="beginner">Beginner</option>
+              <option value="intermediate">Intermediate</option>
+              <option value="advanced">Advanced</option>
+            </select>
+          </div>
+          <fieldset class="field">
+            <legend>Reason for contacting</legend>
+            <div class="radio-row">
+              <label><input type="radio" name="reason" value="question" checked> Ask a question</label>
+              <label><input type="radio" name="reason" value="demo"> Request a demo</label>
+              <label><input type="radio" name="reason" value="feedback"> Give feedback</label>
+            </div>
+          </fieldset>
+          <div class="field">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="6" placeholder="Tell us what you would like to know"></textarea>
+          </div>
+          <button type="submit" class="btn btn-dark">Send message</button>
+        </form>
+
+        <aside class="contact-aside">
+          <img src="images/contact.svg" alt="Envelope and a speech bubble" width="460" height="310">
+          <h3>Other ways to reach us</h3>
+          <p>Email: <a href="mailto:contact@movesmart.com" class="text-link">contact@movesmart.com</a></p>
+          <p>Based in Tempe, Arizona</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="container page-section faq">
+      <h2>Frequently asked questions</h2>
+      <details>
+        <summary>Do I need special equipment?</summary>
+        <p>No. A phone with a camera and enough space to step back 6 to 8 feet is all you need.</p>
+      </details>
+      <details>
+        <summary>Which exercises can Move Smart check?</summary>
+        <p>The <a href="form-check.html#live-check" class="text-link">live form check</a> works with squats and push-ups right now. The <a href="exercises.html" class="text-link">Exercises page</a> has guides for the squat, push-up, lunge, deadlift, and overhead press.</p>
+      </details>
+      <details>
+        <summary>Is my video private?</summary>
+        <p>Yes. Move Smart only uses your joint positions, and you decide whether to save each clip.</p>
+      </details>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <h4>Quick links</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="how-it-works.html">How It Works</a></li>
+          <li><a href="exercises.html">Exercises</a></li>
+          <li><a href="form-check.html">Form Check</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact us</h4>
+        <p>Email: <a href="mailto:contact@movesmart.com">contact@movesmart.com</a></p>
+        <p>Tempe, Arizona</p>
+      </div>
+      <div>
+        <h4>Follow us</h4>
+        <ul class="footer-links">
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">YouTube</a></li>
+          <li><a href="#">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container">
+      <p class="copyright">&copy; 2026 Ishita Rajeev. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

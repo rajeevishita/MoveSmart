@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 300" width="600" height="300">
+<rect width="600" height="300" fill="#2b2838"/>
+<line x1="36" y1="268" x2="580" y2="268" stroke="#7c7994" stroke-width="3" stroke-linecap="round"/>
+<g stroke="#c4b5be" stroke-width="4" stroke-linecap="round"><line x1="80" y1="176" x2="56" y2="266"/><line x1="80" y1="176" x2="104" y2="266"/><line x1="80" y1="176" x2="80" y2="266"/></g>
+<rect x="66" y="118" width="28" height="56" rx="6" fill="#2b2838" stroke="#f7f6f8" stroke-width="4"/><circle cx="90" cy="132" r="3.5" fill="#a89398"/>
+<g stroke="#a89398" stroke-width="2.5" stroke-dasharray="7 7"><line x1="96" y1="140" x2="556" y2="34"/><line x1="96" y1="150" x2="556" y2="268"/></g>
+<g fill="none" stroke="#f7f6f8" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+<path d="M452 98 L488 98"/>
+<path d="M470 100 L470 166"/>
+<path d="M460 166 L480 166"/>
+<path d="M460 166 L458 214 L456 262"/>
+<path d="M480 166 L482 214 L484 262"/>
+<path d="M452 98 L446 134 L444 170"/>
+<path d="M488 98 L494 134 L496 170"/>
+<path d="M470 100 L470 86"/>
+</g>
+<circle cx="470" cy="70" r="15" fill="#2b2838" stroke="#f7f6f8" stroke-width="6"/>
+<circle cx="452" cy="98" r="6" fill="#2b2838" stroke="#c4b5be" stroke-width="3.5"/>
+<circle cx="488" cy="98" r="6" fill="#2b2838" stroke="#c4b5be" stroke-width="3.5"/>
+<circle cx="446" cy="134" r="6" fill="#2b2838" stroke="#c4b5be" stroke-width="3.5"/>
+<circle cx="494" cy="134" r="6" fill="#2b2838" stroke="#c4b5be" stroke-width="3.5"/>
+<circle cx="444" cy="170" r="6" fill="#2b2838" stroke="#c4b5be" stroke-width="3.5"/>
+<circle cx="496" cy="170" r="6" fill="#2b2838" stroke="#c4b5be" stroke-width="3.5"/>
+<circle cx="460" cy="166" r="6" fill="#2b2838" stroke="#c4b5be" stroke-width="3.5"/>
+<circle cx="480" cy="166" r="6" fill="#2b2838" stroke="#c4b5be" stroke-width="3.5"/>
+<circle cx="458" cy="214" r="6" fill="#2b2838" stroke="#c4b5be" stroke-width="3.5"/>
+<circle cx="482" cy="214" r="6" fill="#2b2838" stroke="#c4b5be" stroke-width="3.5"/>
+<circle cx="456" cy="262" r="6" fill="#2b2838" stroke="#c4b5be" stroke-width="3.5"/>
+<circle cx="484" cy="262" r="6" fill="#2b2838" stroke="#c4b5be" stroke-width="3.5"/>
+<g stroke="#f7f6f8" stroke-width="3" fill="#f7f6f8"><line x1="104" y1="288" x2="446" y2="288"/><path d="M104 288l12-7v14z"/><path d="M446 288l-12-7v14z"/></g>
+<g stroke="#a89398" stroke-width="2">
+<line x1="150" y1="90" x2="98" y2="122"/>
+</g>
+<g font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#e9e2e6">
+<text x="206" y="280">6 to 8 feet away</text>
+<text x="112" y="84">Phone at hip height</text>
+<text x="300" y="30">Whole body in frame</text>
+</g>
+</svg>

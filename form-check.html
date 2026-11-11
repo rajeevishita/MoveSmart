@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Watch a demo of a Move Smart form check and see what the AI measures and what a feedback report looks like.">
+  <meta name="keywords" content="form check demo, exercise video analysis, joint angles, rep counter, workout feedback">
+  <meta name="author" content="Ishita Rajeev">
+  <title>Form Check | Move Smart</title>
+  <link rel="icon" href="images/logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="brand">
+        <img src="images/logo.svg" alt="Move Smart logo" width="52" height="52">
+        <span>
+          <span class="brand-name">Move Smart</span>
+          <span class="tagline">AI-powered exercise form feedback</span>
+        </span>
+      </a>
+    </div>
+  </header>
+
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="container">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="how-it-works.html">How It Works</a></li>
+        <li><a href="exercises.html">Exercises</a></li>
+        <li><a href="form-check.html" class="active" aria-current="page">Form Check</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+
+    <section class="page-intro">
+      <div class="container">
+        <h1>Form check</h1>
+        <p>Check your squat or push-up form live with your camera, or watch a demo to see how a form check works.</p>
+      </div>
+    </section>
+
+    <section class="container page-section" id="live-check">
+      <h2>Try it live</h2>
+      <p>Use your camera or a video you already have. Move Smart tracks your joints, counts your reps, and tells you what to fix as you move. Everything runs in your browser, so your video is never uploaded.</p>
+      <div class="live-grid">
+        <div class="live-stage">
+          <video id="live-video" playsinline muted></video>
+          <canvas id="live-canvas"></canvas>
+          <p class="live-placeholder" id="live-placeholder">Pick an exercise, then start your camera or choose a video.</p>
+        </div>
+        <div class="live-panel">
+          <label for="exercise">Exercise</label>
+          <select id="exercise">
+            <option value="squat">Squat</option>
+            <option value="pushup">Push-up</option>
+          </select>
+          <div class="live-buttons">
+            <button type="button" class="btn btn-dark" id="start-camera">Start camera</button>
+            <button type="button" class="btn btn-outline" id="choose-file">Use a video file</button>
+            <button type="button" class="btn btn-outline" id="stop-check" disabled>Stop</button>
+            <input type="file" id="video-file" accept="video/*" class="visually-hidden" tabindex="-1" aria-hidden="true">
+          </div>
+          <div class="live-stats">
+            <div>
+              <span class="stat-label">Reps</span>
+              <span class="stat-value" id="rep-count">0</span>
+            </div>
+            <div>
+              <span class="stat-label" id="angle-label">Knee angle</span>
+              <span class="stat-value" id="angle-value">--</span>
+            </div>
+          </div>
+          <p class="live-cue" id="live-cue" aria-live="polite">Your feedback will show up here.</p>
+          <h3>Rep by rep</h3>
+          <ol class="check-list rep-log" id="rep-log"></ol>
+          <p class="live-status" id="live-status" role="status"></p>
+        </div>
+      </div>
+      <p class="live-tip">For the best results, stand side-on to the camera, 6 to 8 feet away, with your whole body in the frame.</p>
+    </section>
+
+    <section class="container page-section">
+      <h2>Watch a form check</h2>
+      <div class="video-grid">
+        <video controls muted playsinline preload="metadata" poster="images/form-check-poster.jpg" width="960" height="540">
+          <source src="videos/form-check-demo.mp4" type="video/mp4">
+          <source src="videos/form-check-demo.webm" type="video/webm">
+          Your browser does not support the video tag.
+        </video>
+        <div>
+          <p>In this 12-second demo, Move Smart tracks a squat from the side. The white skeleton follows the joints, the dotted line traces the path of the hips, and the numbers update with every frame.</p>
+          <ul class="check-list">
+            <li>The rep counter goes up each time you stand back up.</li>
+            <li>The knee angle shows how deep each rep goes.</li>
+            <li>A tip appears on rep 2, when the heels lift off the floor.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="container page-section">
+      <h2>What Move Smart measures</h2>
+      <dl class="metrics">
+        <div>
+          <dt>Joint angles</dt>
+          <dd>The angle at your knees, hips, and elbows in every frame, to show how deep and how controlled each rep is.</dd>
+        </div>
+        <div>
+          <dt>Alignment</dt>
+          <dd>Whether your knees track over your toes and your back stays in a straight line.</dd>
+        </div>
+        <div>
+          <dt>Range of motion</dt>
+          <dd>How far you move on each rep, compared with the target depth for the exercise.</dd>
+        </div>
+        <div>
+          <dt>Reps and tempo</dt>
+          <dd>How many reps you do and how long each one takes, so you can spot when you start to rush.</dd>
+        </div>
+      </dl>
+    </section>
+
+    <section class="container page-section">
+      <h2>Example report</h2>
+      <div class="report-grid">
+        <aside class="tips">
+          <h3>Squat, 3 reps</h3>
+          <ul>
+            <li>Depth: good on all 3 reps</li>
+            <li>Back angle: steady through the set</li>
+            <li class="warn">Tip: keep your heels down (rep 2)</li>
+          </ul>
+          <p><strong>Try this next set:</strong> push through your whole foot and pause for one second at the bottom.</p>
+        </aside>
+        <div>
+          <p>Every report starts with what you did well, then gives you one thing to fix. Focusing on one change at a time makes it easier to remember during your next set.</p>
+          <p>Want to see your own report? Try a live form check at the top of this page.</p>
+          <a href="#live-check" class="btn btn-dark">Try it live</a>
+        </div>
+      </div>
+    </section>
+
+    <script src="js/pose-logic.js" defer></script>
+    <script src="js/form-check.js" defer></script>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <h4>Quick links</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="how-it-works.html">How It Works</a></li>
+          <li><a href="exercises.html">Exercises</a></li>
+          <li><a href="form-check.html">Form Check</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact us</h4>
+        <p>Email: <a href="mailto:contact@movesmart.com">contact@movesmart.com</a></p>
+        <p>Tempe, Arizona</p>
+      </div>
+      <div>
+        <h4>Follow us</h4>
+        <ul class="footer-links">
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">YouTube</a></li>
+          <li><a href="#">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container">
+      <p class="copyright">&copy; 2026 Ishita Rajeev. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
