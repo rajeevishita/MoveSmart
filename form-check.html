@@ -45,7 +45,7 @@
     <section class="page-intro">
       <div class="container">
         <h1>Form check</h1>
-        <p>Check your squat or push-up form live with your camera, or watch a demo to see how a form check works.</p>
+        <p>Check your form live on six exercises with your camera, or watch a demo to see how a form check works.</p>
       </div>
     </section>
 
@@ -63,6 +63,10 @@
           <select id="exercise">
             <option value="squat">Squat</option>
             <option value="pushup">Push-up</option>
+            <option value="lunge">Lunge</option>
+            <option value="curl">Bicep curl</option>
+            <option value="jack">Jumping jacks</option>
+            <option value="plank">Plank (timed hold)</option>
           </select>
           <div class="live-buttons">
             <button type="button" class="btn btn-dark" id="start-camera">Start camera</button>
@@ -72,7 +76,7 @@
           </div>
           <div class="live-stats">
             <div>
-              <span class="stat-label">Reps</span>
+              <span class="stat-label" id="count-label">Reps</span>
               <span class="stat-value" id="rep-count">0</span>
             </div>
             <div>
@@ -86,7 +90,7 @@
           <p class="live-status" id="live-status" role="status"></p>
         </div>
       </div>
-      <p class="live-tip">For the best results, stand side-on to the camera, 6 to 8 feet away, with your whole body in the frame.</p>
+      <p class="live-tip" id="live-tip">Camera tip: stand side-on to the camera, 6 to 8 feet away, with your whole body in the frame.</p>
     </section>
 
     <section class="container page-section">

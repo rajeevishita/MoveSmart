@@ -25,6 +25,8 @@
     stop: $('stop-check'),
     placeholder: $('live-placeholder'),
     reps: $('rep-count'),
+    countLabel: $('count-label'),
+    tip: $('live-tip'),
     angleLabel: $('angle-label'),
     angleValue: $('angle-value'),
     cue: $('live-cue'),
@@ -122,9 +124,9 @@
     lastFrameTime = -1;
     lastCue = '';
     ui.log.innerHTML = '';
-    ui.reps.textContent = '0';
+    ui.reps.textContent = session.type === 'hold' ? '0:00' : '0';
     ui.angleValue.textContent = '--';
-    ui.angleLabel.textContent = session.angleLabel;
+    showLabels();
     ui.placeholder.hidden = true;
     ui.stop.disabled = false;
     ui.exercise.disabled = true;
@@ -154,8 +156,7 @@
     ui.exercise.disabled = false;
     setBusy(false);
     if (showSummary && wasRunning && session) {
-      var s = session.summary();
-      setStatus('Set finished: ' + s.reps + (s.reps === 1 ? ' rep, ' : ' reps, ') + s.good + ' with good form.');
+      setStatus(session.summaryText());
     }
   }
 
@@ -177,7 +178,7 @@
       }
       var landmarks = result && result.landmarks && result.landmarks[0];
       draw(landmarks);
-      show(session.update(landmarks, canvas.width, canvas.height));
+      show(session.update(landmarks, canvas.width, canvas.height, performance.now()));
     }
     requestAnimationFrame(loop);
   }
@@ -212,7 +213,7 @@
   }
 
   function show(state) {
-    ui.reps.textContent = String(state.reps);
+    ui.reps.textContent = state.display != null ? state.display : String(state.reps);
     ui.angleValue.textContent = state.angle == null ? '--' : Math.round(state.angle) + '°';
     if (state.cue && state.cue.text !== lastCue) {
       lastCue = state.cue.text;
@@ -221,8 +222,8 @@
     }
     if (state.newRep) {
       var item = document.createElement('li');
-      item.textContent = 'Rep ' + state.newRep.number + ': ' +
-        (state.newRep.good ? 'good rep' : state.newRep.notes.join(', ').toLowerCase());
+      item.textContent = state.newRep.label || ('Rep ' + state.newRep.number + ': ' +
+        (state.newRep.good ? 'good rep' : state.newRep.notes.join(', ').toLowerCase()));
       if (!state.newRep.good) item.className = 'warn';
       ui.log.appendChild(item);
       ui.log.scrollTop = ui.log.scrollHeight;
@@ -282,9 +283,16 @@
   });
   ui.stop.addEventListener('click', function () { stopCheck(true); });
   video.addEventListener('ended', function () { stopCheck(true); });
-  ui.exercise.addEventListener('change', function () {
-    ui.angleLabel.textContent = logic.EXERCISES[ui.exercise.value].angleLabel;
-  });
+  // labels and the camera tip follow the chosen exercise
+  function showLabels() {
+    var ex = logic.EXERCISES[ui.exercise.value];
+    ui.angleLabel.textContent = ex.angleLabel;
+    ui.countLabel.textContent = ex.statLabel || 'Reps';
+    ui.tip.textContent = 'Camera tip: ' + ex.viewTip;
+    if (!running) ui.reps.textContent = ex.type === 'hold' ? '0:00' : '0';
+  }
+  ui.exercise.addEventListener('change', showLabels);
+  showLabels();
   document.addEventListener('visibilitychange', function () {
     if (document.hidden && stream) stopCheck(true);
   });

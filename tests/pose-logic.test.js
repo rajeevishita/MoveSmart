@@ -144,3 +144,126 @@ test('spots heels lifting even when they start rising at the top of the rep', ()
   assert.strictEqual(reps.length, 2);
   assert.deepStrictEqual(reps[1].notes, ['Keep your heels down']);
 });
+
+// ---------- new exercises ----------
+
+// Build landmarks from a map of landmark number -> point (all fully visible)
+function landmarksMap(points) {
+  const lm = Array.from({ length: 33 }, () => ({ x: 0.5, y: 0.5, visibility: 0.2 }));
+  for (const [i, p] of Object.entries(points)) lm[+i] = { x: p.x / W, y: p.y / H, visibility: 0.95 };
+  return lm;
+}
+function feed(session, frames, start = 0) {
+  const reps = [];
+  let last;
+  frames.forEach((lm, i) => {
+    last = session.update(lm, W, H, start + i * (1000 / 30));
+    if (last.newRep) reps.push(last.newRep);
+  });
+  return { reps, last };
+}
+const there = (from, deg, len) => ({ x: from.x + len * Math.sin(rad(deg)), y: from.y + len * Math.cos(rad(deg)) });
+const repeat = (frame, n) => Array.from({ length: n }, () => frame);
+
+// Side-view lunge. t: 0 standing, 1 bottom. lean: torso lean in degrees
+function lungePose(t, lean = 3) {
+  const hip = { x: 600, y: 330 + 150 * t };
+  const frontKnee = there(hip, 80 * t, 170);          // front thigh swings forward
+  const frontAnkle = { x: frontKnee.x, y: frontKnee.y + 160 };   // front shin stays upright
+  const backKnee = there(hip, -25 * t, 170);           // back thigh swings back
+  const backAnkle = there(backKnee, -(25 * t) - 95 * t, 160);    // back shin folds behind
+  const shoulder = { x: hip.x + 200 * Math.sin(rad(lean)), y: hip.y - 200 * Math.cos(rad(lean)) };
+  return landmarksMap({ 11: shoulder, 12: shoulder, 23: hip, 24: hip, 25: frontKnee, 27: frontAnkle, 26: backKnee, 28: backAnkle });
+}
+const lungeRep = (depth = 1, lean = 3) => {
+  const f = [];
+  for (let i = 0; i <= 12; i++) f.push(...repeat(lungePose((i / 12) * depth, lean), 2));
+  for (let i = 12; i >= 0; i--) f.push(...repeat(lungePose((i / 12) * depth, lean), 2));
+  return f;
+};
+
+test('counts lunges and checks depth and an upright torso', () => {
+  const bottom = logic.measureLunge(lungePose(1), W, H);
+  assert.ok(bottom.angle < 105, `front knee at the bottom was ${bottom.angle}`);
+  const s = logic.createSession('lunge');
+  const { reps } = feed(s, [...repeat(lungePose(0), 5), ...lungeRep(), ...lungeRep(0.75), ...lungeRep(1, 40)]);
+  assert.strictEqual(reps.length, 3);
+  assert.ok(reps[0].good, JSON.stringify(reps[0]));
+  assert.ok(reps[1].notes.includes('Lower your back knee a little more'), JSON.stringify(reps[1]));
+  assert.ok(reps[2].notes.includes('Keep your torso upright'), JSON.stringify(reps[2]));
+});
+
+// Bicep curl seen from the side. elbowDeg: angle at the elbow. drift: how far the elbow swings forward
+function curlPose(elbowDeg, drift = 0) {
+  const shoulder = { x: 600, y: 200 }, hip = { x: 600, y: 420 };
+  const elbow = there(shoulder, drift, 140);
+  const wrist = there(elbow, drift + 180 - elbowDeg, 120); // forearm bends forward from the upper arm
+  return landmarksMap({ 11: shoulder, 13: elbow, 15: wrist, 23: hip });
+}
+const curlRep = (top = 40, drift = 0) => {
+  const f = [];
+  for (let a = 170; a >= top; a -= 8) f.push(...repeat(curlPose(a, drift), 2));
+  for (let a = top; a <= 170; a += 8) f.push(...repeat(curlPose(a, drift), 2));
+  return f;
+};
+
+test('counts bicep curls and flags half reps and a swinging elbow', () => {
+  const s = logic.createSession('curl');
+  const { reps } = feed(s, [...repeat(curlPose(170), 5), ...curlRep(), ...curlRep(62), ...curlRep(40, 45)]);
+  assert.strictEqual(reps.length, 3);
+  assert.ok(reps[0].good, JSON.stringify(reps[0]));
+  assert.ok(reps[1].notes.includes('Curl all the way up'), JSON.stringify(reps[1]));
+  assert.ok(reps[2].notes.includes('Keep your elbow at your side'), JSON.stringify(reps[2]));
+});
+
+// Jumping jack facing the camera. arms: 0 down, 1 overhead. feet: how far apart, in shoulder widths
+function jackPose(arms, feet) {
+  const a = 15 + 155 * arms;
+  const ls = { x: 560, y: 200 }, rs = { x: 640, y: 200 };
+  const lw = { x: ls.x - 150 * Math.sin(rad(a)), y: ls.y + 150 * Math.cos(rad(a)) };
+  const rw = { x: rs.x + 150 * Math.sin(rad(a)), y: rs.y + 150 * Math.cos(rad(a)) };
+  const half = (feet * 80) / 2;
+  return landmarksMap({ 11: ls, 12: rs, 15: lw, 16: rw, 23: { x: 575, y: 400 }, 24: { x: 625, y: 400 },
+                        27: { x: 600 - half, y: 620 }, 28: { x: 600 + half, y: 620 } });
+}
+const jackRep = (arms = 1, feet = 1.9) => {
+  const f = [];
+  for (let i = 0; i <= 8; i++) f.push(jackPose((i / 8) * arms, 0.6 + (i / 8) * (feet - 0.6)));
+  for (let i = 8; i >= 0; i--) f.push(jackPose((i / 8) * arms, 0.6 + (i / 8) * (feet - 0.6)));
+  return f;
+};
+
+test('counts jumping jacks and checks arms overhead and feet wide', () => {
+  const s = logic.createSession('jack');
+  const { reps } = feed(s, [...repeat(jackPose(0, 0.6), 5), ...jackRep(), ...jackRep(0.7), ...jackRep(1, 1.0)]);
+  assert.strictEqual(reps.length, 3);
+  assert.ok(reps[0].good, JSON.stringify(reps[0]));
+  assert.ok(reps[1].notes.includes('Raise your arms all the way overhead'), JSON.stringify(reps[1]));
+  assert.ok(reps[2].notes.includes('Jump your feet wider'), JSON.stringify(reps[2]));
+});
+
+// Side-view plank. drop: pixels the hips sag below the line (negative = hips too high)
+function plankPose(drop = 0) {
+  const shoulder = { x: 900, y: 500 }, ankle = { x: 300, y: 560 };
+  const hip = { x: 600, y: 530 + drop };
+  return landmarksMap({ 11: shoulder, 23: hip, 27: ankle });
+}
+
+test('the plank timer only runs while the body is in a straight line', () => {
+  const s = logic.createSession('plank');
+  const standing = landmarksMap({ 11: { x: 600, y: 200 }, 23: { x: 600, y: 400 }, 27: { x: 600, y: 620 } });
+  let out = s.update(standing, W, H, 0);
+  assert.strictEqual(out.cue.text, 'Get into a plank, side-on to the camera');
+  const frames = [...repeat(plankPose(), 300), ...repeat(plankPose(90), 90), ...repeat(plankPose(-110), 60), ...repeat(plankPose(), 60)];
+  const { reps, last } = feed(s, frames, 1000);
+  const held = s.summary().seconds;
+  assert.ok(Math.abs(held - 12) < 0.3, `held ${held} seconds`);
+  assert.strictEqual(last.display, logic.formatTime(held));
+  assert.deepStrictEqual(reps.map((r) => r.label), ['10 seconds of good form']);
+});
+
+test('every exercise has a name, labels and a camera tip', () => {
+  for (const [key, ex] of Object.entries(logic.EXERCISES)) {
+    assert.ok(ex.name && ex.angleLabel && ex.viewTip, key);
+  }
+});

@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 310" width="460" height="310">
+<rect width="460" height="310" fill="#2b2838"/>
+<line x1="40" y1="290" x2="420" y2="290" stroke="#7c7994" stroke-width="3" stroke-linecap="round"/>
+<line x1="70" y1="238" x2="360" y2="192" stroke="#a89398" stroke-width="2.5" stroke-dasharray="6 7"/>
+<g fill="none" stroke="#f7f6f8" stroke-width="9" stroke-linecap="round" stroke-linejoin="round">
+<path d="M330 222 L205 242 L140 252 L80 262 L70 290"/>
+<path d="M330 222 L330 288 L384 288"/>
+<path d="M330 222 L352 214"/>
+</g>
+<circle cx="370" cy="210" r="16" fill="#2b2838" stroke="#f7f6f8" stroke-width="6"/>
+<circle cx="330" cy="222" r="7" fill="#2b2838" stroke="#c4b5be" stroke-width="3.5"/>
+<circle cx="330" cy="288" r="7" fill="#2b2838" stroke="#c4b5be" stroke-width="3.5"/>
+<circle cx="205" cy="242" r="7" fill="#2b2838" stroke="#c4b5be" stroke-width="3.5"/>
+<circle cx="140" cy="252" r="7" fill="#2b2838" stroke="#c4b5be" stroke-width="3.5"/>
+<circle cx="80" cy="262" r="7" fill="#2b2838" stroke="#c4b5be" stroke-width="3.5"/>
+<g stroke="#a89398" stroke-width="2">
+<line x1="160" y1="104" x2="190" y2="220"/>
+<line x1="356" y1="150" x2="334" y2="212"/>
+</g>
+<g font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#e9e2e6">
+<text x="20" y="80">Body in one</text>
+<text x="20" y="104">straight line</text>
+<text x="320" y="120">Elbows under</text>
+<text x="320" y="144">shoulders</text>
+</g>
+</svg>

@@ -4,7 +4,7 @@
 
 Live site: https://rajeevishita.github.io/MoveSmart/
 
-Move Smart uses computer vision to watch you exercise, count your reps, and tell you what to fix, in real time. Point your webcam at yourself (or upload a video), do a set of squats or push-ups, and Move Smart tracks your joints, measures the angles between them, and gives feedback on every rep.
+Move Smart uses computer vision to watch you exercise, count your reps, and tell you what to fix, in real time. Point your webcam at yourself (or upload a video), do a set of squats, push-ups, lunges, curls, or jumping jacks, or hold a plank, and Move Smart tracks your joints, measures the angles between them, and gives feedback on every rep.
 
 All processing happens on your device. Video is never uploaded to a server.
 
@@ -12,11 +12,16 @@ All processing happens on your device. Video is never uploaded to a server.
 
 - **Live form check** with your webcam or a video file ([Form Check page](https://rajeevishita.github.io/MoveSmart/form-check.html#live-check))
 - **Pose tracking** with Google's MediaPipe Pose Landmarker (33 body points per frame)
-- **Rep counting** for squats and push-ups
+- **Rep counting** for squats, push-ups, lunges, bicep curls, and jumping jacks
+- **Plank timer** that only counts the seconds you hold good form
 - **Form feedback**, live and per rep:
   - Squat: depth, heels lifting, chest dropping, knees caving in (front view)
   - Push-up: depth, hips sagging, hips too high
-- **Exercise guides** for the squat, push-up, lunge, deadlift, and overhead press
+  - Lunge: depth, torso staying upright
+  - Bicep curl: full range of motion, elbow staying at your side
+  - Jumping jack: arms all the way overhead, feet wide enough
+  - Plank: hips sagging or piking
+- **Exercise guides** for eight exercises, plus a comparison table
 - Responsive design that works on phones, and it respects the "reduce motion" setting
 
 ## How the live check works
@@ -61,7 +66,7 @@ node --test
 
 ## Roadmap
 
-- More exercises for the live check (lunge, deadlift, overhead press)
+- More exercises for the live check (deadlift, overhead press)
 - Measure accuracy against hand-counted reps on recorded clips
 - Save sessions and show progress over time
 

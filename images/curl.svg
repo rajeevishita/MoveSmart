@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 310" width="460" height="310">
+<rect width="460" height="310" fill="#2b2838"/>
+<line x1="40" y1="300" x2="420" y2="300" stroke="#7c7994" stroke-width="3" stroke-linecap="round"/>
+<g fill="none" stroke="#f7f6f8" stroke-width="9" stroke-linecap="round" stroke-linejoin="round">
+<path d="M222 92 L220 165 L221 228 L220 292 L254 300"/>
+<path d="M220 292 L208 300"/>
+<path d="M222 92 L226 148 L266 110"/>
+<path d="M222 92 L224 80"/>
+</g>
+<circle cx="226" cy="62" r="16" fill="#2b2838" stroke="#f7f6f8" stroke-width="6"/>
+<circle cx="222" cy="92" r="7" fill="#2b2838" stroke="#c4b5be" stroke-width="3.5"/>
+<circle cx="226" cy="148" r="7" fill="#2b2838" stroke="#c4b5be" stroke-width="3.5"/>
+<circle cx="266" cy="110" r="7" fill="#2b2838" stroke="#c4b5be" stroke-width="3.5"/>
+<circle cx="220" cy="165" r="7" fill="#2b2838" stroke="#c4b5be" stroke-width="3.5"/>
+<circle cx="221" cy="228" r="7" fill="#2b2838" stroke="#c4b5be" stroke-width="3.5"/>
+<circle cx="220" cy="292" r="7" fill="#2b2838" stroke="#c4b5be" stroke-width="3.5"/>
+<g stroke="#c4b5be" stroke-width="6" stroke-linecap="round"><line x1="258" y1="102" x2="274" y2="118"/></g><g fill="#7c7994"><circle cx="256" cy="100" r="8"/><circle cx="276" cy="120" r="8"/></g>
+<g stroke="#a89398" stroke-width="2">
+<line x1="298" y1="78" x2="276" y2="104"/>
+<line x1="276" y1="170" x2="236" y2="152"/>
+<line x1="112" y1="124" x2="212" y2="126"/>
+</g>
+<g font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#e9e2e6">
+<text x="300" y="58">Squeeze at</text>
+<text x="300" y="82">the top</text>
+<text x="280" y="168">Elbow stays</text>
+<text x="280" y="192">at your side</text>
+<text x="20" y="130">Stand tall</text>
+</g>
+</svg>

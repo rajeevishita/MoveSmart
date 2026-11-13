@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 310" width="460" height="310">
+<rect width="460" height="310" fill="#2b2838"/>
+<line x1="40" y1="300" x2="420" y2="300" stroke="#7c7994" stroke-width="3" stroke-linecap="round"/>
+<g fill="none" stroke="#f7f6f8" stroke-width="9" stroke-linecap="round" stroke-linejoin="round">
+<path d="M204 104 L256 104"/>
+<path d="M230 104 L230 180"/>
+<path d="M214 180 L246 180"/>
+<path d="M204 104 L184 62 L198 22"/>
+<path d="M256 104 L276 62 L262 22"/>
+<path d="M214 180 L190 238 L168 292 L150 298"/>
+<path d="M246 180 L270 238 L292 292 L310 298"/>
+<path d="M230 104 L230 92"/>
+</g>
+<circle cx="230" cy="72" r="15" fill="#2b2838" stroke="#f7f6f8" stroke-width="6"/>
+<circle cx="204" cy="104" r="7" fill="#2b2838" stroke="#c4b5be" stroke-width="3.5"/>
+<circle cx="256" cy="104" r="7" fill="#2b2838" stroke="#c4b5be" stroke-width="3.5"/>
+<circle cx="184" cy="62" r="7" fill="#2b2838" stroke="#c4b5be" stroke-width="3.5"/>
+<circle cx="276" cy="62" r="7" fill="#2b2838" stroke="#c4b5be" stroke-width="3.5"/>
+<circle cx="198" cy="22" r="7" fill="#2b2838" stroke="#c4b5be" stroke-width="3.5"/>
+<circle cx="262" cy="22" r="7" fill="#2b2838" stroke="#c4b5be" stroke-width="3.5"/>
+<circle cx="214" cy="180" r="7" fill="#2b2838" stroke="#c4b5be" stroke-width="3.5"/>
+<circle cx="246" cy="180" r="7" fill="#2b2838" stroke="#c4b5be" stroke-width="3.5"/>
+<circle cx="190" cy="238" r="7" fill="#2b2838" stroke="#c4b5be" stroke-width="3.5"/>
+<circle cx="270" cy="238" r="7" fill="#2b2838" stroke="#c4b5be" stroke-width="3.5"/>
+<circle cx="168" cy="292" r="7" fill="#2b2838" stroke="#c4b5be" stroke-width="3.5"/>
+<circle cx="292" cy="292" r="7" fill="#2b2838" stroke="#c4b5be" stroke-width="3.5"/>
+<g stroke="#a89398" stroke-width="2">
+<line x1="298" y1="30" x2="270" y2="24"/>
+<line x1="122" y1="262" x2="170" y2="286"/>
+</g>
+<g font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#e9e2e6">
+<text x="302" y="30">Arms all</text>
+<text x="302" y="54">the way up</text>
+<text x="18" y="256">Feet wider</text>
+<text x="18" y="280">than hips</text>
+</g>
+</svg>
