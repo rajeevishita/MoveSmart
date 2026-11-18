@@ -21,7 +21,10 @@ All processing happens on your device. Video is never uploaded to a server.
   - Bicep curl: full range of motion, elbow staying at your side
   - Jumping jack: arms all the way overhead, feet wide enough
   - Plank: hips sagging or piking
-- **Exercise guides** for eight exercises, plus a comparison table
+- **Big on-screen counter** you can read from across the room, a 3-2-1 countdown, full-screen mode, and a set summary with a form score
+- **Voice coach** (optional) that counts reps and calls out fixes, using the browser's built-in speech
+- **Practice without a camera**: a slider squats a skeleton on the home page, running through the same rep counter and form checks
+- **Exercise guides** for eight exercises, plus a comparison table, with "Try it live" links straight into the camera check
 - Responsive design that works on phones, and it respects the "reduce motion" setting
 
 ## How the live check works
@@ -50,6 +53,8 @@ contact.html          Contact form and FAQ
 css/style.css         All styles
 js/pose-logic.js      Angles, rep counting, and form rules (no browser code)
 js/form-check.js      Camera, video, drawing, and the page controls
+js/practice.js        The "Practice without a camera" skeleton on the home page
+js/site.js            Phone menu and contact form checks
 tests/                Unit tests for pose-logic.js
 images/, videos/      Illustrations and demo videos
 ```

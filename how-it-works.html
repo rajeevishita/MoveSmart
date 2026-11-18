@@ -12,35 +12,40 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <script>document.documentElement.className += " js";</script>
+  <script src="js/site.js" defer></script>
 </head>
 <body>
 
+  <a class="skip-link" href="#main">Skip to main content</a>
+
   <header class="site-header">
-    <div class="container">
+    <div class="container header-bar">
       <a href="index.html" class="brand">
-        <img src="images/logo.svg" alt="Move Smart logo" width="52" height="52">
+        <img src="images/logo.svg" alt="" width="44" height="44">
         <span>
           <span class="brand-name">Move Smart</span>
           <span class="tagline">AI-powered exercise form feedback</span>
         </span>
       </a>
+      <button type="button" class="menu-toggle" aria-expanded="false" aria-controls="site-nav">
+        <span class="menu-icon" aria-hidden="true"></span>
+        Menu
+      </button>
+      <nav class="site-nav" id="site-nav" aria-label="Main navigation">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="how-it-works.html" class="active" aria-current="page">How It Works</a></li>
+            <li><a href="exercises.html">Exercises</a></li>
+            <li><a href="form-check.html">Form Check</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
     </div>
   </header>
 
-  <nav class="site-nav" aria-label="Main navigation">
-    <div class="container">
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="how-it-works.html" class="active" aria-current="page">How It Works</a></li>
-        <li><a href="exercises.html">Exercises</a></li>
-        <li><a href="form-check.html">Form Check</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </div>
-  </nav>
-
-  <main>
+  <main id="main">
 
     <section class="page-intro">
       <div class="container">

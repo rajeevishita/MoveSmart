@@ -12,35 +12,40 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <script>document.documentElement.className += " js";</script>
+  <script src="js/site.js" defer></script>
 </head>
 <body>
 
+  <a class="skip-link" href="#main">Skip to main content</a>
+
   <header class="site-header">
-    <div class="container">
+    <div class="container header-bar">
       <a href="index.html" class="brand">
-        <img src="images/logo.svg" alt="Move Smart logo" width="52" height="52">
+        <img src="images/logo.svg" alt="" width="44" height="44">
         <span>
           <span class="brand-name">Move Smart</span>
           <span class="tagline">AI-powered exercise form feedback</span>
         </span>
       </a>
+      <button type="button" class="menu-toggle" aria-expanded="false" aria-controls="site-nav">
+        <span class="menu-icon" aria-hidden="true"></span>
+        Menu
+      </button>
+      <nav class="site-nav" id="site-nav" aria-label="Main navigation">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="how-it-works.html">How It Works</a></li>
+            <li><a href="exercises.html" class="active" aria-current="page">Exercises</a></li>
+            <li><a href="form-check.html">Form Check</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
     </div>
   </header>
 
-  <nav class="site-nav" aria-label="Main navigation">
-    <div class="container">
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="how-it-works.html">How It Works</a></li>
-        <li><a href="exercises.html" class="active" aria-current="page">Exercises</a></li>
-        <li><a href="form-check.html">Form Check</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </div>
-  </nav>
-
-  <main>
+  <main id="main">
 
     <section class="page-intro">
       <div class="container">
@@ -66,56 +71,56 @@
           </thead>
           <tbody>
             <tr>
-              <th scope="row">Squat</th>
+              <th scope="row"><a href="#squat">Squat</a></th>
               <td>Quads, glutes, hamstrings</td>
               <td>Knees caving inward</td>
               <td>Push your knees out in line with your toes</td>
               <td>Beginner</td>
             </tr>
             <tr>
-              <th scope="row">Push-up</th>
+              <th scope="row"><a href="#push-up">Push-up</a></th>
               <td>Chest, shoulders, triceps</td>
               <td>Hips sagging toward the floor</td>
               <td>Squeeze your glutes and brace your core to keep a straight line</td>
               <td>Beginner</td>
             </tr>
             <tr>
-              <th scope="row">Lunge</th>
+              <th scope="row"><a href="#lunge">Lunge</a></th>
               <td>Quads, glutes</td>
               <td>Front knee drifting inward</td>
               <td>Keep your front knee over the middle of your foot</td>
               <td>Beginner</td>
             </tr>
             <tr>
-              <th scope="row">Deadlift</th>
+              <th scope="row"><a href="#deadlift">Deadlift</a></th>
               <td>Hamstrings, glutes, lower back</td>
               <td>Rounding the lower back</td>
               <td>Keep a neutral spine and the bar close to your legs</td>
               <td>Intermediate</td>
             </tr>
             <tr>
-              <th scope="row">Overhead press</th>
+              <th scope="row"><a href="#overhead-press">Overhead press</a></th>
               <td>Shoulders, triceps, upper back</td>
               <td>Arching the lower back</td>
               <td>Tighten your glutes and core and press straight up</td>
               <td>Intermediate</td>
             </tr>
             <tr>
-              <th scope="row">Bicep curl</th>
+              <th scope="row"><a href="#bicep-curl">Bicep curl</a></th>
               <td>Biceps, forearms</td>
               <td>Swinging the elbows forward</td>
               <td>Keep your elbows at your sides and lift slowly</td>
               <td>Beginner</td>
             </tr>
             <tr>
-              <th scope="row">Jumping jack</th>
+              <th scope="row"><a href="#jumping-jack">Jumping jack</a></th>
               <td>Full body, heart and lungs</td>
               <td>Arms stopping below the head</td>
               <td>Reach all the way overhead and jump your feet wide</td>
               <td>Beginner</td>
             </tr>
             <tr>
-              <th scope="row">Plank</th>
+              <th scope="row"><a href="#plank">Plank</a></th>
               <td>Core, shoulders, glutes</td>
               <td>Hips sagging or piking up</td>
               <td>Squeeze your glutes and keep a straight line from head to heels</td>
@@ -128,6 +133,18 @@
 
     <section class="container page-section">
       <h2>Exercise guides</h2>
+      <nav class="jump-nav" aria-label="Jump to an exercise guide">
+        <ul>
+          <li><a href="#squat">Squat</a></li>
+          <li><a href="#push-up">Push-up</a></li>
+          <li><a href="#lunge">Lunge</a></li>
+          <li><a href="#deadlift">Deadlift</a></li>
+          <li><a href="#overhead-press">Overhead press</a></li>
+          <li><a href="#bicep-curl">Bicep curl</a></li>
+          <li><a href="#jumping-jack">Jumping jack</a></li>
+          <li><a href="#plank">Plank</a></li>
+        </ul>
+      </nav>
 
       <article class="guide" id="squat">
         <img src="images/squat.svg" alt="Squat at the bottom position labeled chest up, knees over toes, and heels down" width="460" height="310">
@@ -142,6 +159,7 @@
             <li>Go down until your thighs are about parallel to the floor, or as low as you can with a flat back.</li>
           </ul>
           <p class="mistake"><strong>Most common mistake:</strong> Knees caving inward. Push your knees out so they stay in line with your toes.</p>
+          <a href="form-check.html?exercise=squat#live-check" class="btn btn-small btn-dark try-live">Try squats live</a>
         </div>
       </article>
 
@@ -158,6 +176,7 @@
             <li>Keep your elbows at about a 45-degree angle from your body.</li>
           </ul>
           <p class="mistake"><strong>Most common mistake:</strong> Hips sagging toward the floor. Tighten your core and glutes, or start with your hands on a bench.</p>
+          <a href="form-check.html?exercise=pushup#live-check" class="btn btn-small btn-dark try-live">Try push-ups live</a>
         </div>
       </article>
 
@@ -174,6 +193,7 @@
             <li>Push through your front heel to stand back up.</li>
           </ul>
           <p class="mistake"><strong>Most common mistake:</strong> Front knee drifting inward. Slow down and keep your knee lined up with your second toe.</p>
+          <a href="form-check.html?exercise=lunge#live-check" class="btn btn-small btn-dark try-live">Try lunges live</a>
         </div>
       </article>
 
@@ -222,6 +242,7 @@
             <li>Lower slowly until your arms are straight again.</li>
           </ul>
           <p class="mistake"><strong>Most common mistake:</strong> Swinging the elbows forward. Keep your elbows pinned to your sides, and use a lighter weight if you have to swing.</p>
+          <a href="form-check.html?exercise=curl#live-check" class="btn btn-small btn-dark try-live">Try bicep curls live</a>
         </div>
       </article>
 
@@ -238,6 +259,7 @@
             <li>Land softly on the balls of your feet.</li>
           </ul>
           <p class="mistake"><strong>Most common mistake:</strong> Arms stopping below your head. Reach all the way up until your hands nearly meet overhead.</p>
+          <a href="form-check.html?exercise=jack#live-check" class="btn btn-small btn-dark try-live">Try jumping jacks live</a>
         </div>
       </article>
 
@@ -254,6 +276,7 @@
             <li>Keep breathing and hold for as long as your form stays solid.</li>
           </ul>
           <p class="mistake"><strong>Most common mistake:</strong> Hips sagging or piking up. Squeeze your glutes and keep a straight line from your head to your heels.</p>
+          <a href="form-check.html?exercise=plank#live-check" class="btn btn-small btn-dark try-live">Try a plank live</a>
         </div>
       </article>
 

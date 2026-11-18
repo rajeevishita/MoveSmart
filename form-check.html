@@ -12,35 +12,40 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <script>document.documentElement.className += " js";</script>
+  <script src="js/site.js" defer></script>
 </head>
 <body>
 
+  <a class="skip-link" href="#main">Skip to main content</a>
+
   <header class="site-header">
-    <div class="container">
+    <div class="container header-bar">
       <a href="index.html" class="brand">
-        <img src="images/logo.svg" alt="Move Smart logo" width="52" height="52">
+        <img src="images/logo.svg" alt="" width="44" height="44">
         <span>
           <span class="brand-name">Move Smart</span>
           <span class="tagline">AI-powered exercise form feedback</span>
         </span>
       </a>
+      <button type="button" class="menu-toggle" aria-expanded="false" aria-controls="site-nav">
+        <span class="menu-icon" aria-hidden="true"></span>
+        Menu
+      </button>
+      <nav class="site-nav" id="site-nav" aria-label="Main navigation">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="how-it-works.html">How It Works</a></li>
+            <li><a href="exercises.html">Exercises</a></li>
+            <li><a href="form-check.html" class="active" aria-current="page">Form Check</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
     </div>
   </header>
 
-  <nav class="site-nav" aria-label="Main navigation">
-    <div class="container">
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="how-it-works.html">How It Works</a></li>
-        <li><a href="exercises.html">Exercises</a></li>
-        <li><a href="form-check.html" class="active" aria-current="page">Form Check</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </div>
-  </nav>
-
-  <main>
+  <main id="main">
 
     <section class="page-intro">
       <div class="container">
@@ -51,46 +56,61 @@
 
     <section class="container page-section" id="live-check">
       <h2>Try it live</h2>
-      <p>Use your camera or a video you already have. Move Smart tracks your joints, counts your reps, and tells you what to fix as you move. Everything runs in your browser, so your video is never uploaded.</p>
+      <p>Pick an exercise, start your camera, and move. Move Smart tracks your joints, counts your reps, and tells you what to fix as you go. Everything runs in your browser, so your video is never uploaded.</p>
+      <fieldset class="exercise-picker">
+        <legend>Choose an exercise</legend>
+        <div class="picker-options">
+          <label class="pick"><input type="radio" name="exercise" value="squat" checked><span>Squat</span></label>
+          <label class="pick"><input type="radio" name="exercise" value="pushup"><span>Push-up</span></label>
+          <label class="pick"><input type="radio" name="exercise" value="lunge"><span>Lunge</span></label>
+          <label class="pick"><input type="radio" name="exercise" value="curl"><span>Bicep curl</span></label>
+          <label class="pick"><input type="radio" name="exercise" value="jack"><span>Jumping jacks</span></label>
+          <label class="pick"><input type="radio" name="exercise" value="plank"><span>Plank <small>timed</small></span></label>
+        </div>
+      </fieldset>
       <div class="live-grid">
-        <div class="live-stage">
+        <div class="live-stage" id="live-stage">
           <video id="live-video" playsinline muted></video>
           <canvas id="live-canvas"></canvas>
-          <p class="live-placeholder" id="live-placeholder">Pick an exercise, then start your camera or choose a video.</p>
+          <div class="stage-idle" id="stage-idle">
+            <img id="idle-image" src="images/squat.svg" alt="" width="460" height="310">
+            <p id="idle-text">Press <strong>Start camera</strong>, step back, and do a few squats.</p>
+          </div>
+          <div class="hud" id="hud" hidden>
+            <div class="hud-stat">
+              <span class="hud-label" id="count-label">Reps</span>
+              <span class="hud-value" id="rep-count">0</span>
+            </div>
+            <div class="hud-stat hud-angle">
+              <span class="hud-label" id="angle-label">Knee angle</span>
+              <span class="hud-value" id="angle-value">--</span>
+            </div>
+            <p class="hud-cue" id="live-cue" aria-live="polite"></p>
+          </div>
+          <div class="countdown" id="countdown" hidden></div>
+          <div class="stage-loading" id="stage-loading" hidden>
+            <span class="spinner" aria-hidden="true"></span>
+            <p>Loading the pose model&hellip;</p>
+          </div>
         </div>
         <div class="live-panel">
-          <label for="exercise">Exercise</label>
-          <select id="exercise">
-            <option value="squat">Squat</option>
-            <option value="pushup">Push-up</option>
-            <option value="lunge">Lunge</option>
-            <option value="curl">Bicep curl</option>
-            <option value="jack">Jumping jacks</option>
-            <option value="plank">Plank (timed hold)</option>
-          </select>
           <div class="live-buttons">
             <button type="button" class="btn btn-dark" id="start-camera">Start camera</button>
             <button type="button" class="btn btn-outline" id="choose-file">Use a video file</button>
-            <button type="button" class="btn btn-outline" id="stop-check" disabled>Stop</button>
             <input type="file" id="video-file" accept="video/*" class="visually-hidden" tabindex="-1" aria-hidden="true">
           </div>
-          <div class="live-stats">
-            <div>
-              <span class="stat-label" id="count-label">Reps</span>
-              <span class="stat-value" id="rep-count">0</span>
-            </div>
-            <div>
-              <span class="stat-label" id="angle-label">Knee angle</span>
-              <span class="stat-value" id="angle-value">--</span>
-            </div>
+          <div class="live-toggles">
+            <button type="button" class="toggle" id="voice-toggle" aria-pressed="true">Voice coach</button>
+            <button type="button" class="toggle" id="fullscreen-toggle">Full screen</button>
           </div>
-          <p class="live-cue" id="live-cue" aria-live="polite">Your feedback will show up here.</p>
-          <h3>Rep by rep</h3>
-          <ol class="check-list rep-log" id="rep-log"></ol>
+          <p class="live-tip" id="live-tip">Camera tip: stand side-on to the camera, 6 to 8 feet away, with your whole body in the frame.</p>
           <p class="live-status" id="live-status" role="status"></p>
+          <div class="set-summary" id="set-summary" hidden tabindex="-1"></div>
+          <h3>Rep by rep</h3>
+          <p class="log-empty" id="log-empty">Your reps will show up here as you go.</p>
+          <ol class="check-list rep-log" id="rep-log"></ol>
         </div>
       </div>
-      <p class="live-tip" id="live-tip">Camera tip: stand side-on to the camera, 6 to 8 feet away, with your whole body in the frame.</p>
     </section>
 
     <section class="container page-section">

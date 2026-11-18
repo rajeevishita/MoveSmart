@@ -12,35 +12,42 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <script>document.documentElement.className += " js";</script>
+  <script src="js/site.js" defer></script>
+  <script src="js/pose-logic.js" defer></script>
+  <script src="js/practice.js" defer></script>
 </head>
 <body>
 
+  <a class="skip-link" href="#main">Skip to main content</a>
+
   <header class="site-header">
-    <div class="container">
+    <div class="container header-bar">
       <a href="index.html" class="brand">
-        <img src="images/logo.svg" alt="Move Smart logo" width="52" height="52">
+        <img src="images/logo.svg" alt="" width="44" height="44">
         <span>
           <span class="brand-name">Move Smart</span>
           <span class="tagline">AI-powered exercise form feedback</span>
         </span>
       </a>
+      <button type="button" class="menu-toggle" aria-expanded="false" aria-controls="site-nav">
+        <span class="menu-icon" aria-hidden="true"></span>
+        Menu
+      </button>
+      <nav class="site-nav" id="site-nav" aria-label="Main navigation">
+        <ul>
+            <li><a href="index.html" class="active" aria-current="page">Home</a></li>
+            <li><a href="how-it-works.html">How It Works</a></li>
+            <li><a href="exercises.html">Exercises</a></li>
+            <li><a href="form-check.html">Form Check</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
     </div>
   </header>
 
-  <nav class="site-nav" aria-label="Main navigation">
-    <div class="container">
-      <ul>
-        <li><a href="index.html" class="active" aria-current="page">Home</a></li>
-        <li><a href="how-it-works.html">How It Works</a></li>
-        <li><a href="exercises.html">Exercises</a></li>
-        <li><a href="form-check.html">Form Check</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </div>
-  </nav>
-
-  <main>
+  <main id="main">
 
     <section class="hero">
       <div class="container hero-grid">
@@ -48,6 +55,15 @@
           <h1><span>Move better.</span> <span>Train smarter.</span></h1>
           <p>Film a few reps and Move Smart tracks your joints through every movement, then tells you exactly what to fix in your form.</p>
           <a href="form-check.html#live-check" class="btn">Start a form check</a>
+          <p class="hero-try" id="try-label">Or jump straight to an exercise:</p>
+          <ul class="pill-list" aria-labelledby="try-label">
+            <li><a href="form-check.html?exercise=squat#live-check">Squats</a></li>
+            <li><a href="form-check.html?exercise=pushup#live-check">Push-ups</a></li>
+            <li><a href="form-check.html?exercise=lunge#live-check">Lunges</a></li>
+            <li><a href="form-check.html?exercise=curl#live-check">Bicep curls</a></li>
+            <li><a href="form-check.html?exercise=jack#live-check">Jumping jacks</a></li>
+            <li><a href="form-check.html?exercise=plank#live-check">Planks</a></li>
+          </ul>
         </div>
         <div class="hero-media">
           <video class="hero-video" autoplay muted loop playsinline poster="images/hero-loop-poster.jpg" width="600" height="720" aria-label="A pose-tracking skeleton does three squats while Move Smart counts the reps, shows the knee angle, and gives feedback on each rep">
@@ -84,6 +100,42 @@
       </ol>
     </section>
 
+    <section class="container practice" id="practice">
+      <h2>Practice without a camera</h2>
+      <p class="section-intro">Drag the slider to squat this skeleton down and stand it back up. It runs on the same rep counter and form checks as the live camera check, so try the mistakes too.</p>
+      <div class="practice-grid">
+        <div class="practice-stage">
+          <svg id="practice-svg" viewBox="420 0 440 530" width="440" height="530" role="img" aria-labelledby="practice-svg-title">
+            <title id="practice-svg-title">A pose-tracking skeleton that squats as you move the slider</title>
+            <line x1="450" y1="503" x2="830" y2="503" stroke="#7c7994" stroke-width="3" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="practice-panel">
+          <label for="practice-depth">Squat depth</label>
+          <input type="range" id="practice-depth" min="0" max="100" step="1" value="0" aria-describedby="practice-scale">
+          <p class="practice-scale" id="practice-scale"><span>Standing</span><span>Deep squat</span></p>
+          <fieldset class="practice-mistakes">
+            <legend>Add a mistake</legend>
+            <label><input type="checkbox" id="practice-heels"> Lift my heels</label>
+            <label><input type="checkbox" id="practice-lean"> Lean too far forward</label>
+          </fieldset>
+          <div class="practice-stats">
+            <div>
+              <span class="stat-label">Reps</span>
+              <span class="stat-value" id="practice-reps">0</span>
+            </div>
+            <div>
+              <span class="stat-label">Knee angle</span>
+              <span class="stat-value" id="practice-angle">180&deg;</span>
+            </div>
+          </div>
+          <p class="practice-cue" id="practice-cue" aria-live="polite">Drag the slider to the right to squat down.</p>
+          <ol class="check-list rep-log" id="practice-log"></ol>
+          <button type="button" class="btn btn-outline btn-small" id="practice-reset">Start over</button>
+        </div>
+      </div>
+    </section>
+
     <section class="container featured">
       <h2>Featured exercise</h2>
       <div class="featured-grid">
@@ -110,6 +162,47 @@
       </div>
     </section>
 
+
+    <section class="container specs" id="specs">
+      <h2>Under the hood</h2>
+      <dl class="spec-list">
+        <div>
+          <dt>Pose tracking</dt>
+          <dd>33 body points in every video frame, found by Google&rsquo;s MediaPipe pose model</dd>
+        </div>
+        <div>
+          <dt>Live exercises</dt>
+          <dd>Squats, push-ups, lunges, bicep curls, jumping jacks, and a timed plank</dd>
+        </div>
+        <div>
+          <dt>Feedback</dt>
+          <dd>A rep counter, joint angles, and tips on screen, plus an optional voice coach</dd>
+        </div>
+        <div>
+          <dt>Privacy</dt>
+          <dd>Runs in your browser, so your video never leaves your device</dd>
+        </div>
+        <div>
+          <dt>What you need</dt>
+          <dd>A laptop or desktop browser with a webcam, or a video you already recorded</dd>
+        </div>
+        <div>
+          <dt>Price</dt>
+          <dd>Free, with nothing to install</dd>
+        </div>
+      </dl>
+    </section>
+
+    <section class="closing">
+      <div class="container">
+        <h2>Your form coach, right in your browser.</h2>
+        <p>Pick an exercise, step back from your camera, and get feedback on every rep.</p>
+        <div class="closing-buttons">
+          <a href="form-check.html#live-check" class="btn">Start a form check</a>
+          <a href="exercises.html" class="btn btn-ghost">Browse exercises</a>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer class="site-footer">
