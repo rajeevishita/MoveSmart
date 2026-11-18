@@ -22,13 +22,101 @@
       }
       root.setAttribute("data-theme", theme);
       root.className += " js";
+      // the home page intro plays once per visit
+      try {
+        var calm = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+        if (!calm && !location.hash && !sessionStorage.getItem("movesmart-intro")) root.className += " intro-on";
+      } catch (e) {}
     })();
   </script>
   <script src="js/site.js" defer></script>
   <script src="js/pose-logic.js" defer></script>
   <script src="js/practice.js" defer></script>
+  <script src="js/intro.js" defer></script>
 </head>
 <body>
+
+  <!-- Intro: the hero gets designed in a Figma-style editor, then becomes the real page -->
+  <div class="intro" id="intro">
+    <div class="intro-editor" aria-hidden="true">
+      <div class="ed-toolbar">
+        <div class="ed-left">
+          <img src="images/logo.svg" alt="" width="22" height="22">
+          <span class="ed-path">Move Smart <span>/</span> <b>Hero</b></span>
+        </div>
+        <div class="ed-tools">
+          <span class="ed-tool is-on"><svg viewBox="0 0 24 24"><path d="M5 3l14 8-6 1.6L10 19z"/></svg></span>
+          <span class="ed-tool"><svg viewBox="0 0 24 24"><path d="M8 3v18M16 3v18M3 8h18M3 16h18"/></svg></span>
+          <span class="ed-tool"><svg viewBox="0 0 24 24"><path d="M4 20l4-1 11-11-3-3L5 16z"/></svg></span>
+          <span class="ed-tool ed-tool-t">T</span>
+        </div>
+        <div class="ed-right">
+          <span class="ed-avatar">AI</span>
+          <span class="ed-share">Share</span>
+          <span class="ed-zoom">100%</span>
+        </div>
+      </div>
+      <div class="ed-body">
+        <div class="ed-panel ed-layers">
+          <div class="ed-tabs"><b>Layers</b><span>Assets</span></div>
+          <ul class="ed-tree">
+            <li data-layer="hero" class="lv0 is-frame-icon">Hero</li>
+            <li data-layer="wordmark" class="lv1 is-text-icon">wordmark</li>
+            <li data-layer="hud" class="lv1">hud</li>
+            <li data-layer="reps" class="lv2">reps_card</li>
+            <li data-layer="angle" class="lv2">angle_card</li>
+            <li data-layer="skeleton" class="lv1">skeleton</li>
+            <li data-layer="bones" class="lv2 is-path-icon">bones</li>
+            <li data-layer="joints" class="lv2 is-dot-icon">joints · 33</li>
+            <li data-layer="background" class="lv1 is-fill-icon">background</li>
+          </ul>
+        </div>
+        <div class="ed-canvas">
+          <p class="ed-frame-label">Hero <span>1440 × 900</span></p>
+          <div class="ed-stage">
+            <div class="ed-frame">
+              <div class="lyr lyr-bg"><span class="lyr-tag">background</span></div>
+              <div class="lyr lyr-skeleton">
+                <div class="fig"><svg id="intro-svg" viewBox="420 0 440 530"></svg></div>
+                <span class="lyr-tag">skeleton</span>
+              </div>
+              <div class="lyr lyr-hud">
+                <div class="fig">
+                  <div class="ihud ihud-reps"><small>Reps</small><b id="intro-reps">0</b></div>
+                  <div class="ihud ihud-angle"><small>Knee angle</small><b id="intro-angle">180°</b></div>
+                  <div class="icue">&#10003; Good depth</div>
+                </div>
+                <span class="lyr-tag">hud</span>
+              </div>
+              <div class="lyr lyr-word">
+                <div class="iw">
+                  <p class="iw-name"><img src="images/logo.svg" alt="" width="20" height="20"> Move Smart</p>
+                  <p class="iw-line"><span>Move Better.</span> <span>Train Smarter.</span> <span class="iw-accent">Stay Stronger.</span></p>
+                  <p class="iw-btn">Start a form check</p>
+                </div>
+                <span class="lyr-tag">wordmark</span>
+              </div>
+              <div class="sel"><i></i><i></i><i></i><i></i><span>1440 × 900</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="ed-panel ed-props">
+          <div class="ed-tabs"><b>Design</b><span>Prototype</span><span>Inspect</span></div>
+          <div class="pr" data-prop="frame"><h5>Frame</h5><p><span>W</span><em>1440</em><span>H</span><em>900</em></p></div>
+          <div class="pr" data-prop="fill"><h5>Fill</h5><p><i class="sw"></i><em id="intro-hex">FFFFFF</em><span>100%</span></p></div>
+          <div class="pr" data-prop="fx"><h5>Effects</h5><p class="pr-row"><span>Background blur</span><em>22</em></p><p class="pr-row"><span>Drop shadow</span><em>0 14 34</em></p></div>
+          <div class="pr" data-prop="motion"><h5>Motion</h5><p><span>Squat</span><em>1 rep</em></p><div class="pr-scrub"><i></i></div></div>
+          <div class="pr" data-prop="text"><h5>Text</h5><p><span>Archivo</span><em>ExtraBold · 64</em></p></div>
+          <div class="pr" data-prop="d3"><h5>3D view</h5><p><span>Tilt</span><em id="intro-tilt">0°</em><span>Turn</span><em id="intro-turn">0°</em></p><p><span>Layer gap</span><em id="intro-gap">0</em></p></div>
+          <div class="pr" data-prop="export"><h5>Export</h5><p><span>PNG at 2×</span><em>SVG</em></p></div>
+        </div>
+      </div>
+      <div class="ed-cursor"><svg viewBox="0 0 20 22"><path d="M2 2l15 8-6.5 1.6L7.5 18z"/></svg><span>AI coach</span></div>
+    </div>
+    <p class="intro-caption" aria-hidden="true"><span class="ic-num">01</span><span class="ic-text">Canvas · 1440 × 900</span></p>
+    <div class="intro-progress" aria-hidden="true"><i></i></div>
+    <button type="button" class="intro-skip">Skip intro</button>
+  </div>
 
   <a class="skip-link" href="#main">Skip to main content</a>
 
@@ -80,6 +168,7 @@
             <li><a href="form-check.html?exercise=jack#live-check">Jumping jacks</a></li>
             <li><a href="form-check.html?exercise=plank#live-check">Planks</a></li>
           </ul>
+          <button type="button" class="intro-replay" hidden><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5v14l11-7z"/></svg> Replay intro</button>
         </div>
         <div class="hero-media">
           <video class="hero-video" autoplay muted loop playsinline poster="images/hero-loop-poster.jpg" width="600" height="720" aria-label="A pose-tracking skeleton does three squats while Move Smart counts the reps, shows the knee angle, and gives feedback on each rep">

@@ -27,6 +27,7 @@ All processing happens on your device. Video is never uploaded to a server.
 - **Voice coach** (optional) that counts reps and calls out fixes, using the browser's built-in speech
 - **Practice without a camera**: a slider squats a skeleton on the home page, running through the same rep counter and form checks
 - **Exercise guides** for eight exercises, plus a comparison table, with "Try it live" links straight into the camera check
+- **8-second intro**: the home page hero is designed in a Figma-style editor (body points, fill, glass, a squat, the tagline, a 3D view of the layers), then zooms into the real page. Plays once per visit, with Skip and Replay buttons, and never plays for people who turn off motion
 - **Liquid glass design**: a floating frosted-glass menu bar, glass cards and buttons, and a soft highlight that follows your pointer (solid panels for browsers or settings that turn off transparency)
 - **Light and dark mode**: follows your device setting, with a button in the header that remembers your choice
 - Responsive design that works on phones, and it respects the "reduce motion" setting
@@ -59,6 +60,7 @@ js/pose-logic.js      Angles, rep counting, and form rules (no browser code)
 js/form-check.js      Camera, video, drawing, and the page controls
 js/practice.js        The "Practice without a camera" skeleton on the home page
 js/site.js            Light/dark mode, phone menu, and contact form checks
+js/intro.js           The home page intro animation
 tests/                Unit tests for pose-logic.js
 images/, videos/      Illustrations and demo videos
 ```
