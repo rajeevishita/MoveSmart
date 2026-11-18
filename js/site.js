@@ -75,6 +75,102 @@
     });
   }
 
+  // ---------- scroll animations ----------
+  // Blocks below the first screen fade and rise in as you scroll to them; items
+  // in a row or list come in one after another, lines draw themselves and some
+  // numbers count up. Nothing moves for people who turn off motion, and
+  // anything already on screen when the page opens is left alone.
+  var still = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!still && 'IntersectionObserver' in window) {
+    var GROUPS = '.steps, .timeline, .values, .metrics, .practice-grid, .featured-grid, .live-grid, .split, ' +
+                 '.feature, .contact-grid, .report-grid, .compare-grid, .footer-top, .closing .container';
+    var BLOCKS = 'main > section > *, main > section > .container > *, .footer-wordmark';
+    var targets = [];
+    document.querySelectorAll(GROUPS).forEach(function (group) {
+      Array.prototype.forEach.call(group.children, function (item, i) {
+        item.style.setProperty('--reveal-delay', (Math.min(i, 4) * 90) + 'ms');
+        targets.push(item);
+      });
+    });
+    document.querySelectorAll(BLOCKS).forEach(function (el) {
+      if (!el.matches(GROUPS) && !el.closest('.hero') && targets.indexOf(el) === -1) targets.push(el);
+    });
+    var fold = window.innerHeight * 0.92;
+    var watcher = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('is-visible');
+        entry.target.querySelectorAll('[data-count]').forEach(countUp);
+        watcher.unobserve(entry.target);
+      });
+    }, { rootMargin: '0px 0px -8% 0px' });
+    targets.forEach(function (el) {
+      if (el.getBoundingClientRect().top < fold || el.offsetParent === null) return;
+      el.classList.add('reveal');
+      watcher.observe(el);
+    });
+  }
+
+  function countUp(el) {
+    var end = Number(el.getAttribute('data-count'));
+    var began = null;
+    function step(now) {
+      if (began === null) began = now;
+      var u = Math.min(1, (now - began) / 1100);
+      el.textContent = String(Math.round(end * (1 - Math.pow(1 - u, 3))));
+      if (u < 1) window.requestAnimationFrame(step);
+    }
+    window.requestAnimationFrame(step);
+  }
+
+  // ---------- spot the difference (Exercises page) ----------
+  var compare = document.querySelector('.compare-stage');
+  if (compare) {
+    var range = compare.querySelector('.compare-range');
+    var touched = false;
+    var setPos = function (v) { compare.style.setProperty('--pos', v + '%'); };
+    range.addEventListener('input', function () {
+      touched = true;
+      setPos(range.value);
+    });
+
+    var compareTabs = document.querySelectorAll('.compare-tab');
+    var tryLink = document.querySelector('.compare-try');
+    compareTabs.forEach(function (tab) {
+      tab.addEventListener('click', function () {
+        var ex = tab.getAttribute('data-ex');
+        compareTabs.forEach(function (other) { other.setAttribute('aria-pressed', String(other === tab)); });
+        document.querySelectorAll('.compare-pair, .compare-notes').forEach(function (el) {
+          el.hidden = el.getAttribute('data-ex') !== ex;
+        });
+        if (tryLink) {
+          tryLink.href = 'form-check.html?exercise=' + ex + '#live-check';
+          tryLink.textContent = 'Check your ' + tab.textContent.toLowerCase() + ' live';
+        }
+      });
+    });
+
+    // a small nudge the first time it comes into view, so it's clear it can be dragged
+    if (!still && 'IntersectionObserver' in window) {
+      var nudge = new IntersectionObserver(function (entries) {
+        if (!entries[0].isIntersecting) return;
+        nudge.disconnect();
+        var began = null;
+        var step = function (now) {
+          if (touched) return;
+          if (began === null) began = now;
+          var u = Math.min(1, (now - began) / 1700);
+          var v = 50 + 24 * Math.sin(u * Math.PI * 2) * (1 - u);
+          setPos(v.toFixed(1));
+          range.value = Math.round(v);
+          if (u < 1) window.requestAnimationFrame(step);
+        };
+        window.setTimeout(function () { window.requestAnimationFrame(step); }, 500);
+      }, { threshold: 0.6 });
+      nudge.observe(compare);
+    }
+  }
+
   // ---------- phone menu ----------
   var header = document.querySelector('.site-header');
   var toggle = document.querySelector('.menu-toggle');

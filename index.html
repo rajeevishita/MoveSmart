@@ -22,101 +22,14 @@
       }
       root.setAttribute("data-theme", theme);
       root.className += " js";
-      // the home page intro plays once per visit
-      try {
-        var calm = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
-        if (!calm && !location.hash && !sessionStorage.getItem("movesmart-intro")) root.className += " intro-on";
-      } catch (e) {}
     })();
   </script>
   <script src="js/site.js" defer></script>
   <script src="js/pose-logic.js" defer></script>
   <script src="js/practice.js" defer></script>
-  <script src="js/intro.js" defer></script>
 </head>
 <body>
 
-  <!-- Intro: the hero gets designed in a Figma-style editor, then becomes the real page -->
-  <div class="intro" id="intro">
-    <div class="intro-editor" aria-hidden="true">
-      <div class="ed-toolbar">
-        <div class="ed-left">
-          <img src="images/logo.svg" alt="" width="22" height="22">
-          <span class="ed-path">Move Smart <span>/</span> <b>Hero</b></span>
-        </div>
-        <div class="ed-tools">
-          <span class="ed-tool is-on"><svg viewBox="0 0 24 24"><path d="M5 3l14 8-6 1.6L10 19z"/></svg></span>
-          <span class="ed-tool"><svg viewBox="0 0 24 24"><path d="M8 3v18M16 3v18M3 8h18M3 16h18"/></svg></span>
-          <span class="ed-tool"><svg viewBox="0 0 24 24"><path d="M4 20l4-1 11-11-3-3L5 16z"/></svg></span>
-          <span class="ed-tool ed-tool-t">T</span>
-        </div>
-        <div class="ed-right">
-          <span class="ed-avatar">AI</span>
-          <span class="ed-share">Share</span>
-          <span class="ed-zoom">100%</span>
-        </div>
-      </div>
-      <div class="ed-body">
-        <div class="ed-panel ed-layers">
-          <div class="ed-tabs"><b>Layers</b><span>Assets</span></div>
-          <ul class="ed-tree">
-            <li data-layer="hero" class="lv0 is-frame-icon">Hero</li>
-            <li data-layer="wordmark" class="lv1 is-text-icon">wordmark</li>
-            <li data-layer="hud" class="lv1">hud</li>
-            <li data-layer="reps" class="lv2">reps_card</li>
-            <li data-layer="angle" class="lv2">angle_card</li>
-            <li data-layer="skeleton" class="lv1">skeleton</li>
-            <li data-layer="bones" class="lv2 is-path-icon">bones</li>
-            <li data-layer="joints" class="lv2 is-dot-icon">joints · 33</li>
-            <li data-layer="background" class="lv1 is-fill-icon">background</li>
-          </ul>
-        </div>
-        <div class="ed-canvas">
-          <p class="ed-frame-label">Hero <span>1440 × 900</span></p>
-          <div class="ed-stage">
-            <div class="ed-frame">
-              <div class="lyr lyr-bg"><span class="lyr-tag">background</span></div>
-              <div class="lyr lyr-skeleton">
-                <div class="fig"><svg id="intro-svg" viewBox="420 0 440 530"></svg></div>
-                <span class="lyr-tag">skeleton</span>
-              </div>
-              <div class="lyr lyr-hud">
-                <div class="fig">
-                  <div class="ihud ihud-reps"><small>Reps</small><b id="intro-reps">0</b></div>
-                  <div class="ihud ihud-angle"><small>Knee angle</small><b id="intro-angle">180°</b></div>
-                  <div class="icue">&#10003; Good depth</div>
-                </div>
-                <span class="lyr-tag">hud</span>
-              </div>
-              <div class="lyr lyr-word">
-                <div class="iw">
-                  <p class="iw-name"><img src="images/logo.svg" alt="" width="20" height="20"> Move Smart</p>
-                  <p class="iw-line"><span>Move Better.</span> <span>Train Smarter.</span> <span class="iw-accent">Stay Stronger.</span></p>
-                  <p class="iw-btn">Start a form check</p>
-                </div>
-                <span class="lyr-tag">wordmark</span>
-              </div>
-              <div class="sel"><i></i><i></i><i></i><i></i><span>1440 × 900</span></div>
-            </div>
-          </div>
-        </div>
-        <div class="ed-panel ed-props">
-          <div class="ed-tabs"><b>Design</b><span>Prototype</span><span>Inspect</span></div>
-          <div class="pr" data-prop="frame"><h5>Frame</h5><p><span>W</span><em>1440</em><span>H</span><em>900</em></p></div>
-          <div class="pr" data-prop="fill"><h5>Fill</h5><p><i class="sw"></i><em id="intro-hex">FFFFFF</em><span>100%</span></p></div>
-          <div class="pr" data-prop="fx"><h5>Effects</h5><p class="pr-row"><span>Background blur</span><em>22</em></p><p class="pr-row"><span>Drop shadow</span><em>0 14 34</em></p></div>
-          <div class="pr" data-prop="motion"><h5>Motion</h5><p><span>Squat</span><em>1 rep</em></p><div class="pr-scrub"><i></i></div></div>
-          <div class="pr" data-prop="text"><h5>Text</h5><p><span>Archivo</span><em>ExtraBold · 64</em></p></div>
-          <div class="pr" data-prop="d3"><h5>3D view</h5><p><span>Tilt</span><em id="intro-tilt">0°</em><span>Turn</span><em id="intro-turn">0°</em></p><p><span>Layer gap</span><em id="intro-gap">0</em></p></div>
-          <div class="pr" data-prop="export"><h5>Export</h5><p><span>PNG at 2×</span><em>SVG</em></p></div>
-        </div>
-      </div>
-      <div class="ed-cursor"><svg viewBox="0 0 20 22"><path d="M2 2l15 8-6.5 1.6L7.5 18z"/></svg><span>AI coach</span></div>
-    </div>
-    <p class="intro-caption" aria-hidden="true"><span class="ic-num">01</span><span class="ic-text">Canvas · 1440 × 900</span></p>
-    <div class="intro-progress" aria-hidden="true"><i></i></div>
-    <button type="button" class="intro-skip">Skip intro</button>
-  </div>
 
   <a class="skip-link" href="#main">Skip to main content</a>
 
@@ -168,7 +81,6 @@
             <li><a href="form-check.html?exercise=jack#live-check">Jumping jacks</a></li>
             <li><a href="form-check.html?exercise=plank#live-check">Planks</a></li>
           </ul>
-          <button type="button" class="intro-replay" hidden><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5v14l11-7z"/></svg> Replay intro</button>
         </div>
         <div class="hero-media">
           <video class="hero-video" autoplay muted loop playsinline poster="images/hero-loop-poster.jpg" width="600" height="720" aria-label="A pose-tracking skeleton does three squats while Move Smart counts the reps, shows the knee angle, and gives feedback on each rep">
@@ -248,7 +160,7 @@
       <h2>Featured exercise</h2>
       <div class="featured-grid">
         <article class="feature">
-          <img src="images/squat.svg" alt="Squat at the bottom position labeled chest up, knees over toes, and heels down" width="460" height="310">
+          <picture><source srcset="images/squat.svg" media="(prefers-reduced-motion: reduce)"><img src="images/moving/squat.svg" alt="A skeleton squatting down and standing back up, labeled chest up, knees over toes, and heels down" width="460" height="310"></picture>
           <div>
             <h3>The squat: common mistakes</h3>
             <p>The squat is one of the most useful exercises you can learn, and one of the easiest to get wrong. The mistakes Move Smart flags most often are knees caving inward, heels lifting off the floor, and the lower back rounding at the bottom of the rep.</p>
@@ -276,7 +188,7 @@
       <dl class="spec-list">
         <div>
           <dt>Pose tracking</dt>
-          <dd>33 body points in every video frame, found by Google&rsquo;s MediaPipe pose model</dd>
+          <dd><span data-count="33">33</span> body points in every video frame, found by Google&rsquo;s MediaPipe pose model</dd>
         </div>
         <div>
           <dt>Live exercises</dt>
@@ -314,9 +226,15 @@
   </main>
 
   <footer class="site-footer">
-    <div class="container footer-grid">
-      <div>
-        <h4>Quick links</h4>
+    <div class="container footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="footer-logo"><img src="images/logo.svg" alt="" width="40" height="40"> <span>Move Smart</span></a>
+        <p class="footer-tagline">Move Better. Train Smarter. Stay Stronger.</p>
+        <p>AI form feedback that runs right in your browser. Your video never leaves your device.</p>
+        <a href="form-check.html#live-check" class="btn btn-small">Start a form check</a>
+      </div>
+      <nav class="footer-col" aria-label="Footer">
+        <h4>Explore</h4>
         <ul class="footer-links">
           <li><a href="index.html">Home</a></li>
           <li><a href="how-it-works.html">How It Works</a></li>
@@ -325,23 +243,34 @@
           <li><a href="about.html">About</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
+      </nav>
+      <div class="footer-col">
+        <h4>Try it live</h4>
+        <ul class="footer-links">
+          <li><a href="form-check.html?exercise=squat#live-check">Squats</a></li>
+          <li><a href="form-check.html?exercise=pushup#live-check">Push-ups</a></li>
+          <li><a href="form-check.html?exercise=lunge#live-check">Lunges</a></li>
+          <li><a href="form-check.html?exercise=curl#live-check">Bicep curls</a></li>
+          <li><a href="form-check.html?exercise=jack#live-check">Jumping jacks</a></li>
+          <li><a href="form-check.html?exercise=plank#live-check">Planks</a></li>
+        </ul>
       </div>
-      <div>
+      <div class="footer-col">
         <h4>Contact us</h4>
         <p>Email: <a href="mailto:contact@movesmart.com">contact@movesmart.com</a></p>
         <p>Tempe, Arizona</p>
-      </div>
-      <div>
-        <h4>Follow us</h4>
-        <ul class="footer-links">
+        <h4 class="footer-follow">Follow us</h4>
+        <ul class="footer-social">
           <li><a href="#">Instagram</a></li>
           <li><a href="#">YouTube</a></li>
           <li><a href="#">LinkedIn</a></li>
         </ul>
       </div>
     </div>
-    <div class="container">
+    <p class="footer-wordmark" aria-hidden="true">Move Smart</p>
+    <div class="container footer-bottom">
       <p class="copyright">&copy; 2026 Ishita Rajeev. All rights reserved.</p>
+      <a href="#main" class="back-to-top">Back to top <span aria-hidden="true">&uarr;</span></a>
     </div>
   </footer>
 

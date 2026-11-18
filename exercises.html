@@ -147,6 +147,43 @@
       </div>
     </section>
 
+    <section class="container page-section" id="spot-the-difference">
+      <h2>Spot the difference</h2>
+      <p class="section-intro">Drag the slider to compare a common mistake with good form. These are the same mistakes Move Smart flags during a live check.</p>
+      <div class="compare-tabs" role="group" aria-label="Exercise to compare">
+        <button type="button" class="compare-tab" data-ex="squat" aria-pressed="true">Squat</button>
+        <button type="button" class="compare-tab" data-ex="pushup" aria-pressed="false">Push-up</button>
+        <button type="button" class="compare-tab" data-ex="lunge" aria-pressed="false">Lunge</button>
+      </div>
+      <div class="compare-grid">
+        <div class="compare-stage" style="--pos: 50%">
+          <div class="compare-pair" data-ex="squat">
+            <img class="compare-bad" src="images/compare/squat-bad.svg" alt="Common mistake: Squat with the heels lifting, the chest dropping forward, and the hips too high" width="460" height="310">
+            <img class="compare-good" src="images/compare/squat-good.svg" alt="Good form: Squat with the heels down, the chest up, and the hips level with the knees" width="460" height="310">
+          </div>
+          <div class="compare-pair" data-ex="pushup" hidden>
+            <img class="compare-bad" src="images/compare/pushup-bad.svg" alt="Common mistake: Push-up with the hips sagging and the head dropping" width="460" height="310">
+            <img class="compare-good" src="images/compare/pushup-good.svg" alt="Good form: Push-up with the body and head in one straight line" width="460" height="310">
+          </div>
+          <div class="compare-pair" data-ex="lunge" hidden>
+            <img class="compare-bad" src="images/compare/lunge-bad.svg" alt="Common mistake: Lunge leaning forward with the front knee past the toes and the back knee too high" width="460" height="310">
+            <img class="compare-good" src="images/compare/lunge-good.svg" alt="Good form: Lunge with the torso upright, the front knee over the ankle, and the back knee low" width="460" height="310">
+          </div>
+          <span class="compare-tag compare-tag-bad">Common mistake</span>
+          <span class="compare-tag compare-tag-good">Good form</span>
+          <input type="range" class="compare-range" min="0" max="100" value="50" aria-label="Compare the mistake and good form. Lower values show more good form.">
+          <div class="compare-handle" aria-hidden="true"><span>&lsaquo; &rsaquo;</span></div>
+        </div>
+        <div class="compare-side">
+          <h3>What to fix</h3>
+          <ul class="compare-notes check-list" data-ex="squat"><li><strong>Heels lifting:</strong> keep your whole foot on the floor and sit back into your heels.</li><li><strong>Chest dropping:</strong> keep your chest up and your eyes forward.</li><li><strong>Not deep enough:</strong> lower until your hips are level with your knees.</li></ul>
+          <ul class="compare-notes check-list" data-ex="pushup" hidden><li><strong>Hips sagging:</strong> squeeze your glutes and brace your core so your body stays straight.</li><li><strong>Head dropping:</strong> look at the floor just ahead of your hands to keep your neck in line.</li></ul>
+          <ul class="compare-notes check-list" data-ex="lunge" hidden><li><strong>Leaning forward:</strong> keep your torso tall, with your shoulders over your hips.</li><li><strong>Knee past toes:</strong> take a longer step so your front knee stays over your ankle.</li><li><strong>Not low enough:</strong> lower until your back knee is close to the floor.</li></ul>
+          <a class="btn btn-small btn-dark compare-try" href="form-check.html?exercise=squat#live-check">Check your squat live</a>
+        </div>
+      </div>
+    </section>
+
     <section class="container page-section">
       <h2>Exercise guides</h2>
       <nav class="jump-nav" aria-label="Jump to an exercise guide">
@@ -163,7 +200,7 @@
       </nav>
 
       <article class="guide" id="squat">
-        <img src="images/squat.svg" alt="Squat at the bottom position labeled chest up, knees over toes, and heels down" width="460" height="310">
+        <picture><source srcset="images/squat.svg" media="(prefers-reduced-motion: reduce)"><img src="images/moving/squat.svg" alt="A skeleton squatting down and standing back up, labeled chest up, knees over toes, and heels down" width="460" height="310"></picture>
         <div>
           <h3>Squat</h3>
           <p>Squats strengthen your quads, glutes, and hamstrings, and they make everyday movements like sitting down and standing up easier.</p>
@@ -180,7 +217,7 @@
       </article>
 
       <article class="guide" id="push-up">
-        <img src="images/pushup.svg" alt="Push-up with the body in one straight line, core braced, and hands under the shoulders" width="460" height="310">
+        <picture><source srcset="images/pushup.svg" media="(prefers-reduced-motion: reduce)"><img src="images/moving/pushup.svg" alt="A skeleton doing push-ups with the body in one straight line, core braced, and hands under the shoulders" width="460" height="310"></picture>
         <div>
           <h3>Push-up</h3>
           <p>Push-ups build your chest, shoulders, and triceps while training your core to hold a straight line.</p>
@@ -197,7 +234,7 @@
       </article>
 
       <article class="guide" id="lunge">
-        <img src="images/lunge.svg" alt="Lunge with the torso upright, front knee over the ankle, and back knee near the floor" width="460" height="310">
+        <picture><source srcset="images/lunge.svg" media="(prefers-reduced-motion: reduce)"><img src="images/moving/lunge.svg" alt="A skeleton lunging down and back up with the torso upright, front knee over the ankle, and back knee near the floor" width="460" height="310"></picture>
         <div>
           <h3>Lunge</h3>
           <p>Lunges work one leg at a time, which builds balance and evens out strength between your legs.</p>
@@ -214,7 +251,7 @@
       </article>
 
       <article class="guide" id="deadlift">
-        <img src="images/deadlift.svg" alt="Deadlift with a flat back, hips pushed back, and the bar close to the legs" width="460" height="310">
+        <picture><source srcset="images/deadlift.svg" media="(prefers-reduced-motion: reduce)"><img src="images/moving/deadlift.svg" alt="A skeleton deadlifting the bar from the floor with a flat back, hips pushed back, and the bar close to the legs" width="460" height="310"></picture>
         <div>
           <h3>Deadlift</h3>
           <p>Deadlifts train your hamstrings, glutes, and back to lift safely from the floor.</p>
@@ -230,7 +267,7 @@
       </article>
 
       <article class="guide" id="overhead-press">
-        <img src="images/press.svg" alt="Overhead press with the bar over the mid-foot, ribs down, and glutes squeezed" width="460" height="310">
+        <picture><source srcset="images/press.svg" media="(prefers-reduced-motion: reduce)"><img src="images/moving/press.svg" alt="A skeleton pressing a bar from the shoulders to overhead, with the bar over the mid-foot, ribs down, and glutes squeezed" width="460" height="310"></picture>
         <div>
           <h3>Overhead press</h3>
           <p>The overhead press builds strong shoulders and triceps and teaches your whole body to stay tight.</p>
@@ -246,7 +283,7 @@
       </article>
 
       <article class="guide" id="bicep-curl">
-        <img src="images/curl.svg" alt="Bicep curl with the elbow at the side, the weight squeezed at the top, and the body standing tall" width="460" height="310">
+        <picture><source srcset="images/curl.svg" media="(prefers-reduced-motion: reduce)"><img src="images/moving/curl.svg" alt="A skeleton curling a dumbbell with the elbow at the side, squeezing at the top, and standing tall" width="460" height="310"></picture>
         <div>
           <h3>Bicep curl</h3>
           <p>Bicep curls build the muscles on the front of your upper arm, which help with everyday lifting and carrying.</p>
@@ -263,7 +300,7 @@
       </article>
 
       <article class="guide" id="jumping-jack">
-        <img src="images/jack.svg" alt="Jumping jack from the front with the arms all the way up and the feet wider than the hips" width="460" height="310">
+        <picture><source srcset="images/jack.svg" media="(prefers-reduced-motion: reduce)"><img src="images/moving/jack.svg" alt="A skeleton doing jumping jacks from the front, arms all the way up and feet wider than the hips" width="460" height="310"></picture>
         <div>
           <h3>Jumping jack</h3>
           <p>Jumping jacks raise your heart rate and warm up your whole body before a workout.</p>
@@ -280,7 +317,7 @@
       </article>
 
       <article class="guide" id="plank">
-        <img src="images/plank.svg" alt="Forearm plank with the body in one straight line and the elbows under the shoulders" width="460" height="310">
+        <picture><source srcset="images/plank.svg" media="(prefers-reduced-motion: reduce)"><img src="images/moving/plank.svg" alt="A skeleton holding a forearm plank with the body in one straight line and the elbows under the shoulders, with a hold timer" width="460" height="310"></picture>
         <div>
           <h3>Plank</h3>
           <p>The plank strengthens your core, which supports your back during almost every other exercise.</p>
@@ -302,9 +339,15 @@
   </main>
 
   <footer class="site-footer">
-    <div class="container footer-grid">
-      <div>
-        <h4>Quick links</h4>
+    <div class="container footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="footer-logo"><img src="images/logo.svg" alt="" width="40" height="40"> <span>Move Smart</span></a>
+        <p class="footer-tagline">Move Better. Train Smarter. Stay Stronger.</p>
+        <p>AI form feedback that runs right in your browser. Your video never leaves your device.</p>
+        <a href="form-check.html#live-check" class="btn btn-small">Start a form check</a>
+      </div>
+      <nav class="footer-col" aria-label="Footer">
+        <h4>Explore</h4>
         <ul class="footer-links">
           <li><a href="index.html">Home</a></li>
           <li><a href="how-it-works.html">How It Works</a></li>
@@ -313,23 +356,34 @@
           <li><a href="about.html">About</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
+      </nav>
+      <div class="footer-col">
+        <h4>Try it live</h4>
+        <ul class="footer-links">
+          <li><a href="form-check.html?exercise=squat#live-check">Squats</a></li>
+          <li><a href="form-check.html?exercise=pushup#live-check">Push-ups</a></li>
+          <li><a href="form-check.html?exercise=lunge#live-check">Lunges</a></li>
+          <li><a href="form-check.html?exercise=curl#live-check">Bicep curls</a></li>
+          <li><a href="form-check.html?exercise=jack#live-check">Jumping jacks</a></li>
+          <li><a href="form-check.html?exercise=plank#live-check">Planks</a></li>
+        </ul>
       </div>
-      <div>
+      <div class="footer-col">
         <h4>Contact us</h4>
         <p>Email: <a href="mailto:contact@movesmart.com">contact@movesmart.com</a></p>
         <p>Tempe, Arizona</p>
-      </div>
-      <div>
-        <h4>Follow us</h4>
-        <ul class="footer-links">
+        <h4 class="footer-follow">Follow us</h4>
+        <ul class="footer-social">
           <li><a href="#">Instagram</a></li>
           <li><a href="#">YouTube</a></li>
           <li><a href="#">LinkedIn</a></li>
         </ul>
       </div>
     </div>
-    <div class="container">
+    <p class="footer-wordmark" aria-hidden="true">Move Smart</p>
+    <div class="container footer-bottom">
       <p class="copyright">&copy; 2026 Ishita Rajeev. All rights reserved.</p>
+      <a href="#main" class="back-to-top">Back to top <span aria-hidden="true">&uarr;</span></a>
     </div>
   </footer>
 
