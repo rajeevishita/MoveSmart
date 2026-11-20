@@ -39,7 +39,7 @@
         <img src="images/logo.svg" alt="" width="44" height="44">
         <span>
           <span class="brand-name">Move Smart</span>
-          <span class="tagline">AI-powered exercise form feedback</span>
+          <span class="tagline">Exercise form feedback</span>
         </span>
       </a>
       <button type="button" class="menu-toggle" aria-expanded="false" aria-controls="site-nav">
@@ -122,9 +122,10 @@
 
     <section class="container practice" id="practice">
       <h2>Practice without a camera</h2>
-      <p class="section-intro">Drag the slider to squat this skeleton down and stand it back up. It runs on the same rep counter and form checks as the live camera check, so try the mistakes too.</p>
+      <p class="section-intro">Drag the slider to squat this skeleton down and stand it back up. It runs on the same rep counter and form checks as the live camera check, so add a mistake and watch it get caught.</p>
       <div class="practice-grid">
         <div class="practice-stage">
+          <span class="practice-view" id="practice-view">Side view</span>
           <svg id="practice-svg" viewBox="420 0 440 530" width="440" height="530" role="img" aria-labelledby="practice-svg-title">
             <title id="practice-svg-title">A pose-tracking skeleton that squats as you move the slider</title>
             <line x1="450" y1="503" x2="830" y2="503" stroke="#7c7994" stroke-width="3" stroke-linecap="round"/>
@@ -134,11 +135,21 @@
           <label for="practice-depth">Squat depth</label>
           <input type="range" id="practice-depth" min="0" max="100" step="1" value="0" aria-describedby="practice-scale">
           <p class="practice-scale" id="practice-scale"><span>Standing</span><span>Deep squat</span></p>
-          <fieldset class="practice-mistakes">
-            <legend>Add a mistake</legend>
-            <label><input type="checkbox" id="practice-heels"> Lift my heels</label>
-            <label><input type="checkbox" id="practice-lean"> Lean too far forward</label>
-          </fieldset>
+          <div class="practice-mistakes">
+            <label for="practice-add">Add a mistake</label>
+            <div class="mistake-picker">
+              <select id="practice-add">
+                <option value="">Choose a mistake&hellip;</option>
+                <option value="heels">Lift my heels</option>
+                <option value="lean">Lean too far forward</option>
+                <option value="shallow">Stop before I&rsquo;m deep enough</option>
+                <option value="top">Don&rsquo;t stand all the way up</option>
+                <option value="knees">Let my knees cave in</option>
+              </select>
+              <button type="button" class="btn btn-small btn-dark" id="practice-add-button">Add</button>
+            </div>
+            <ul class="mistake-chips" id="practice-chips" aria-label="Mistakes added" aria-live="polite"></ul>
+          </div>
           <div class="practice-stats">
             <div>
               <span class="stat-label">Reps</span>

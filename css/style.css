@@ -2742,3 +2742,114 @@ video {
     right: 10px;
   }
 }
+
+/* ---------- Practice: the mistake menu ---------- */
+.practice-mistakes > label {
+  display: block;
+  margin: 0 0 8px;
+  font-weight: 700;
+  color: var(--heading);
+  cursor: default;
+}
+
+.mistake-picker {
+  display: flex;
+  gap: 8px;
+}
+
+.mistake-picker select {
+  flex: 1;
+  min-width: 0;
+  padding: 9px 12px;
+  font: inherit;
+  color: var(--text);
+  background-color: var(--field-bg);
+  border: 1px solid var(--field-border);
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.mistake-picker select:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.mistake-picker .btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.mistake-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 10px 0 4px;
+  padding: 0;
+  list-style: none;
+}
+
+.mistake-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 6px 5px 13px;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--heading);
+  background-color: rgba(227, 169, 181, 0.24);
+  border: 1px solid rgba(168, 147, 152, 0.6);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.mistake-chip:hover {
+  background-color: rgba(227, 169, 181, 0.4);
+}
+
+.chip-x {
+  display: grid;
+  place-items: center;
+  width: 20px;
+  height: 20px;
+  font-size: 15px;
+  line-height: 1;
+  background-color: rgba(43, 40, 56, 0.12);
+  border-radius: 50%;
+}
+
+[data-theme="dark"] .mistake-chip {
+  background-color: rgba(227, 169, 181, 0.16);
+}
+
+[data-theme="dark"] .chip-x {
+  background-color: rgba(255, 255, 255, 0.12);
+}
+
+.chip-none {
+  font-size: 14px;
+  color: var(--muted);
+}
+
+/* which way the skeleton is facing */
+.practice-stage {
+  position: relative;
+}
+
+.practice-view {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  padding: 4px 12px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #2b2838;
+  background-color: #e9e2e6;
+  border-radius: 999px;
+}
+
+/* long mistake names in the menu must not stretch the panel on phones */
+.practice-grid > * {
+  min-width: 0;
+}

@@ -25,7 +25,7 @@ All processing happens on your device. Video is never uploaded to a server.
   - Plank: hips sagging or piking
 - **Big on-screen counter** you can read from across the room, a 3-2-1 countdown, full-screen mode, and a set summary with a form score
 - **Voice coach** (optional) that counts reps and calls out fixes, using the browser's built-in speech
-- **Practice without a camera**: a slider squats a skeleton on the home page, running through the same rep counter and form checks
+- **Practice without a camera**: a slider squats a skeleton on the home page. Add mistakes from a menu (lifted heels, leaning forward, not deep enough, not standing all the way up, knees caving in, which turns the skeleton to face you) and watch the same rep counter and form checks catch them
 - **Exercise guides** for eight exercises, plus a comparison table, with "Try it live" links straight into the camera check
 - **Smooth page changes**: pages glide into each other, the menu bar stays put, and the current-page pill slides to its new spot
 - **Scroll animations**: sections fade and rise in as you scroll, the "How it works" lines draw themselves, and numbers count up
