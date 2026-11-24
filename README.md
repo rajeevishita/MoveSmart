@@ -2,7 +2,7 @@
 
 *Move Better. Train Smarter. Stay Stronger.*
 
-**AI-powered exercise form feedback that runs in your browser.**
+**Live exercise form feedback that runs in your browser.**
 
 Live site: https://rajeevishita.github.io/MoveSmart/
 
@@ -28,10 +28,10 @@ All processing happens on your device. Video is never uploaded to a server.
 - **Practice without a camera**: a slider squats a skeleton on the home page. Add mistakes from a menu (lifted heels, leaning forward, not deep enough, not standing all the way up, knees caving in, which turns the skeleton to face you) and watch the same rep counter and form checks catch them
 - **Exercise guides** for eight exercises, plus a comparison table, with "Try it live" links straight into the camera check
 - **Smooth page changes**: pages glide into each other, the menu bar stays put, and the current-page pill slides to its new spot
-- **Scroll animations**: sections fade and rise in as you scroll, the "How it works" lines draw themselves, and numbers count up
+- **Gentle scroll fades**: each section fades up softly the first time you scroll to it
 - **Moving exercise guides**: each guide shows a looping skeleton doing the exercise, with the form cues following the joints
 - **Spot the difference**: drag a divider to compare a common mistake with good form for squats, push-ups, and lunges
-- **Liquid glass design**: a floating frosted-glass menu bar, glass cards and buttons, and a soft highlight that follows your pointer (solid panels for browsers or settings that turn off transparency)
+- **Calm, consistent design**: solid surfaces, two corner sizes, and frosted glass only where it helps (the floating menu bar and the overlays on the camera screen)
 - **Light and dark mode**: follows your device setting, with a button in the header that remembers your choice
 - Responsive design that works on phones, and it respects the "reduce motion" setting
 

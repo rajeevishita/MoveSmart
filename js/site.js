@@ -1,7 +1,7 @@
 /* ==========================================
    Move Smart - site-wide behavior
-   Light and dark mode, the phone menu, and friendly checking for the
-   contact form.
+   Light and dark mode, gentle scroll fades, the comparison slider, the phone
+   menu, and friendly checking for the contact form.
    ========================================== */
 (function () {
   'use strict';
@@ -46,81 +46,25 @@
     else if (system.addListener) system.addListener(follow);
   }
 
-  // ---------- light on the glass ----------
-  // With a mouse or trackpad, a soft highlight follows the pointer across the
-  // glass panels, like light catching real glass.
-  var GLASS = '.site-header .header-bar, .tips, .note-card, .contact-form, .faq details, ' +
-              '.live-panel, .practice-panel, .form-success, .spec-list, .table-wrap';
-  if (window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
-    var lit = null, frame = 0, lastMove = null;
-    document.addEventListener('pointermove', function (e) {
-      lastMove = e;
-      if (frame) return;
-      frame = window.requestAnimationFrame(function () {
-        frame = 0;
-        var target = lastMove.target;
-        var glass = target && target.closest ? target.closest(GLASS) : null;
-        if (lit && lit !== glass) lit.classList.remove('glass-lit');
-        lit = glass;
-        if (!glass) return;
-        var box = glass.getBoundingClientRect();
-        glass.style.setProperty('--mx', Math.round(lastMove.clientX - box.left) + 'px');
-        glass.style.setProperty('--my', Math.round(lastMove.clientY - box.top) + 'px');
-        glass.classList.add('glass-lit');
-      });
-    }, { passive: true });
-    document.documentElement.addEventListener('pointerleave', function () {
-      if (lit) lit.classList.remove('glass-lit');
-      lit = null;
-    });
-  }
-
   // ---------- scroll animations ----------
-  // Blocks below the first screen fade and rise in as you scroll to them; items
-  // in a row or list come in one after another, lines draw themselves and some
-  // numbers count up. Nothing moves for people who turn off motion, and
-  // anything already on screen when the page opens is left alone.
+  // Each section below the first screen fades up gently the first time you
+  // scroll to it. Nothing moves for people who turn off motion, and anything
+  // already on screen when the page opens is left alone.
   var still = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (!still && 'IntersectionObserver' in window) {
-    var GROUPS = '.steps, .timeline, .values, .metrics, .practice-grid, .featured-grid, .live-grid, .split, ' +
-                 '.feature, .contact-grid, .report-grid, .compare-grid, .footer-top, .closing .container';
-    var BLOCKS = 'main > section > *, main > section > .container > *, .footer-wordmark';
-    var targets = [];
-    document.querySelectorAll(GROUPS).forEach(function (group) {
-      Array.prototype.forEach.call(group.children, function (item, i) {
-        item.style.setProperty('--reveal-delay', (Math.min(i, 4) * 90) + 'ms');
-        targets.push(item);
-      });
-    });
-    document.querySelectorAll(BLOCKS).forEach(function (el) {
-      if (!el.matches(GROUPS) && !el.closest('.hero') && targets.indexOf(el) === -1) targets.push(el);
-    });
     var fold = window.innerHeight * 0.92;
     var watcher = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         if (!entry.isIntersecting) return;
         entry.target.classList.add('is-visible');
-        entry.target.querySelectorAll('[data-count]').forEach(countUp);
         watcher.unobserve(entry.target);
       });
     }, { rootMargin: '0px 0px -8% 0px' });
-    targets.forEach(function (el) {
-      if (el.getBoundingClientRect().top < fold || el.offsetParent === null) return;
-      el.classList.add('reveal');
-      watcher.observe(el);
+    document.querySelectorAll('main > section:not(.hero)').forEach(function (section) {
+      if (section.getBoundingClientRect().top < fold) return;
+      section.classList.add('reveal');
+      watcher.observe(section);
     });
-  }
-
-  function countUp(el) {
-    var end = Number(el.getAttribute('data-count'));
-    var began = null;
-    function step(now) {
-      if (began === null) began = now;
-      var u = Math.min(1, (now - began) / 1100);
-      el.textContent = String(Math.round(end * (1 - Math.pow(1 - u, 3))));
-      if (u < 1) window.requestAnimationFrame(step);
-    }
-    window.requestAnimationFrame(step);
   }
 
   // ---------- spot the difference (Exercises page) ----------

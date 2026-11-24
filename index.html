@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Move Smart uses AI and computer vision to check your exercise form and give you instant feedback on every rep.">
-  <meta name="keywords" content="exercise form, AI fitness, computer vision, pose tracking, workout feedback, squat form">
+  <meta name="description" content="Move Smart uses your webcam to count reps and catch form mistakes as they happen. Your video never leaves your device.">
+  <meta name="keywords" content="exercise form, form check, rep counter, pose tracking, workout feedback, squat form">
   <meta name="author" content="Ishita Rajeev">
-  <title>Move Smart | AI Exercise Form Feedback</title>
+  <title>Move Smart | Live Exercise Form Feedback</title>
   <link rel="icon" href="images/logo.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -70,17 +70,11 @@
       <div class="container hero-grid">
         <div class="hero-text">
           <h1><span>Move Better.</span> <span>Train Smarter.</span> <span class="hero-accent">Stay Stronger.</span></h1>
-          <p>Film a few reps and Move Smart tracks your joints through every movement, then tells you exactly what to fix in your form.</p>
-          <a href="form-check.html#live-check" class="btn">Start a form check</a>
-          <p class="hero-try" id="try-label">Or jump straight to an exercise:</p>
-          <ul class="pill-list" aria-labelledby="try-label">
-            <li><a href="form-check.html?exercise=squat#live-check">Squats</a></li>
-            <li><a href="form-check.html?exercise=pushup#live-check">Push-ups</a></li>
-            <li><a href="form-check.html?exercise=lunge#live-check">Lunges</a></li>
-            <li><a href="form-check.html?exercise=curl#live-check">Bicep curls</a></li>
-            <li><a href="form-check.html?exercise=jack#live-check">Jumping jacks</a></li>
-            <li><a href="form-check.html?exercise=plank#live-check">Planks</a></li>
-          </ul>
+          <p>Move Smart uses your webcam to count your reps and point out form mistakes as they happen, like lifted heels or a sagging back. Your video stays on your device.</p>
+          <div class="hero-actions">
+            <a href="form-check.html#live-check" class="btn">Start a form check</a>
+            <a href="#how" class="hero-link">See how it works</a>
+          </div>
         </div>
         <div class="hero-media">
           <video class="hero-video" autoplay muted loop playsinline poster="images/hero-loop-poster.jpg" width="600" height="720" aria-label="A pose-tracking skeleton does three squats while Move Smart counts the reps, shows the knee angle, and gives feedback on each rep">
@@ -92,7 +86,7 @@
       </div>
     </section>
 
-    <section class="container how">
+    <section class="container how" id="how">
       <h2>How it works</h2>
       <p class="section-intro">Getting feedback takes three steps and about a minute.</p>
       <ol class="steps">
@@ -100,29 +94,29 @@
           <span class="step-num" aria-hidden="true">1</span>
           <img class="img-light" src="images/step-record.svg" alt="Phone recording a person exercising" width="248" height="172">
           <img class="img-dark" src="images/step-record-dark.svg" alt="Phone recording a person exercising" width="248" height="172">
-          <h3>Record or upload</h3>
-          <p>Prop your phone up so your whole body is in the frame, then film a few reps or upload a clip you already have.</p>
+          <h3>Set up your camera</h3>
+          <p>Stand 6 to 8 feet from your webcam so your whole body fits in the frame, or upload a clip you already recorded.</p>
         </li>
         <li class="step">
           <span class="step-num" aria-hidden="true">2</span>
           <img class="img-light" src="images/step-analyze.svg" alt="Body outline with tracking points on the joints" width="172" height="168">
           <img class="img-dark" src="images/step-analyze-dark.svg" alt="Body outline with tracking points on the joints" width="172" height="168">
-          <h3>AI checks your form</h3>
-          <p>Pose tracking finds key points on your body, like your hips, knees, and shoulders, and measures the angles between them on every rep.</p>
+          <h3>Move Smart tracks your joints</h3>
+          <p>It finds 33 points on your body, like your hips, knees, and shoulders, and measures the angles between them on every rep.</p>
         </li>
         <li class="step">
           <span class="step-num" aria-hidden="true">3</span>
           <img class="img-light" src="images/step-feedback.svg" alt="Form report with two checks and one tip" width="168" height="174">
           <img class="img-dark" src="images/step-feedback-dark.svg" alt="Form report with two checks and one tip" width="168" height="174">
-          <h3>Get feedback</h3>
-          <p>You get a short report showing what you did well, what to fix, and one tip to try on your next set.</p>
+          <h3>Fix it on the next rep</h3>
+          <p>When something slips, a tip appears right away. After your set, you get a summary of what to work on.</p>
         </li>
       </ol>
     </section>
 
     <section class="container practice" id="practice">
-      <h2>Practice without a camera</h2>
-      <p class="section-intro">Drag the slider to squat this skeleton down and stand it back up. It runs on the same rep counter and form checks as the live camera check, so add a mistake and watch it get caught.</p>
+      <h2>Try it without a camera</h2>
+      <p class="section-intro">Drag the slider to squat. Then add a mistake and watch Move Smart catch it, using the same checks as the live camera.</p>
       <div class="practice-grid">
         <div class="practice-stage">
           <span class="practice-view" id="practice-view">Side view</span>
@@ -167,67 +161,33 @@
       </div>
     </section>
 
-    <section class="container featured">
-      <h2>Featured exercise</h2>
-      <div class="featured-grid">
-        <article class="feature">
-          <picture><source srcset="images/squat.svg" media="(prefers-reduced-motion: reduce)"><img src="images/moving/squat.svg" alt="A skeleton squatting down and standing back up, labeled chest up, knees over toes, and heels down" width="460" height="310"></picture>
+    <section class="container privacy" id="privacy">
+      <div class="privacy-grid">
+        <div>
+          <h2>Your video never leaves your device.</h2>
+          <p>Pose tracking runs inside your browser, so nothing you film is uploaded, saved, or seen by anyone else. Close the tab and it&rsquo;s gone.</p>
+        </div>
+        <dl class="privacy-facts">
           <div>
-            <h3>The squat: common mistakes</h3>
-            <p>The squat is one of the most useful exercises you can learn, and one of the easiest to get wrong. The mistakes Move Smart flags most often are knees caving inward, heels lifting off the floor, and the lower back rounding at the bottom of the rep.</p>
-            <p>Each one moves the work away from your legs and puts extra stress on your knees or spine. Fixing them usually takes a lighter weight and a slower, more controlled rep.</p>
-            <a href="exercises.html#squat" class="text-link">Read the full squat guide</a>
+            <dt>What you need</dt>
+            <dd>A laptop or desktop browser with a webcam, or a video you already have.</dd>
           </div>
-        </article>
-        <aside class="tips">
-          <h3>Quick form tips</h3>
-          <ul>
-            <li>Keep your chest up and your back straight</li>
-            <li>Push your knees out in line with your toes</li>
-            <li>Lower with control instead of dropping</li>
-            <li>Breathe out as you push back up</li>
-          </ul>
-          <a href="exercises.html" class="btn btn-small">Browse exercises</a>
-          <p class="external">Want more? Explore the <a href="https://www.acefitness.org/resources/everyone/exercise-library/" target="_blank" rel="noopener">ACE Exercise Library</a>.</p>
-        </aside>
+          <div>
+            <dt>Exercises</dt>
+            <dd>Squats, push-ups, lunges, bicep curls, jumping jacks, and a timed plank.</dd>
+          </div>
+          <div>
+            <dt>Cost</dt>
+            <dd>Free. Nothing to install, and no account.</dd>
+          </div>
+        </dl>
       </div>
-    </section>
-
-
-    <section class="container specs" id="specs">
-      <h2>Under the hood</h2>
-      <dl class="spec-list">
-        <div>
-          <dt>Pose tracking</dt>
-          <dd><span data-count="33">33</span> body points in every video frame, found by Google&rsquo;s MediaPipe pose model</dd>
-        </div>
-        <div>
-          <dt>Live exercises</dt>
-          <dd>Squats, push-ups, lunges, bicep curls, jumping jacks, and a timed plank</dd>
-        </div>
-        <div>
-          <dt>Feedback</dt>
-          <dd>A rep counter, joint angles, and tips on screen, plus an optional voice coach</dd>
-        </div>
-        <div>
-          <dt>Privacy</dt>
-          <dd>Runs in your browser, so your video never leaves your device</dd>
-        </div>
-        <div>
-          <dt>What you need</dt>
-          <dd>A laptop or desktop browser with a webcam, or a video you already recorded</dd>
-        </div>
-        <div>
-          <dt>Price</dt>
-          <dd>Free, with nothing to install</dd>
-        </div>
-      </dl>
     </section>
 
     <section class="closing">
       <div class="container">
-        <h2>Your form coach, right in your browser.</h2>
-        <p>Pick an exercise, step back from your camera, and get feedback on every rep.</p>
+        <h2>Ready for your first set?</h2>
+        <p>Pick an exercise and step back so your whole body is in view. Feedback starts with your first rep.</p>
         <div class="closing-buttons">
           <a href="form-check.html#live-check" class="btn">Start a form check</a>
           <a href="exercises.html" class="btn btn-ghost">Browse exercises</a>
@@ -241,7 +201,7 @@
       <div class="footer-brand">
         <a href="index.html" class="footer-logo"><img src="images/logo.svg" alt="" width="40" height="40"> <span>Move Smart</span></a>
         <p class="footer-tagline">Move Better. Train Smarter. Stay Stronger.</p>
-        <p>AI form feedback that runs right in your browser. Your video never leaves your device.</p>
+        <p>Live form feedback for squats, push-ups, lunges, and more, right in your browser.</p>
         <a href="form-check.html#live-check" class="btn btn-small">Start a form check</a>
       </div>
       <nav class="footer-col" aria-label="Footer">
@@ -270,15 +230,10 @@
         <h4>Contact us</h4>
         <p>Email: <a href="mailto:contact@movesmart.com">contact@movesmart.com</a></p>
         <p>Tempe, Arizona</p>
-        <h4 class="footer-follow">Follow us</h4>
-        <ul class="footer-social">
-          <li><a href="#">Instagram</a></li>
-          <li><a href="#">YouTube</a></li>
-          <li><a href="#">LinkedIn</a></li>
-        </ul>
+        <h4 class="footer-follow">Project</h4>
+        <p><a href="https://github.com/rajeevishita/MoveSmart" target="_blank" rel="noopener">View the code on GitHub</a></p>
       </div>
     </div>
-    <p class="footer-wordmark" aria-hidden="true">Move Smart</p>
     <div class="container footer-bottom">
       <p class="copyright">&copy; 2026 Ishita Rajeev. All rights reserved.</p>
       <a href="#main" class="back-to-top">Back to top <span aria-hidden="true">&uarr;</span></a>
